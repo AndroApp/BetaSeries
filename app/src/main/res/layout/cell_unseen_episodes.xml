@@ -1,0 +1,41 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/image_episode"
+        tools:src="#AAA"
+        android:layout_width="match_parent"
+        android:layout_height="170dip"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:tag="
+                enablePreview();
+                previewUrl(http://smallthings.fr/wp-content/uploads/2015/02/house-of-cards.jpg);
+                url($show.urlBanner);
+            " />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:layout_gravity="bottom"
+        android:background="@color/white80"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="show name"
+            android:tag="
+                font(Roboto-Regular.ttf);
+                setText($show.title);
+            "
+            android:textColor="#333"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</FrameLayout>

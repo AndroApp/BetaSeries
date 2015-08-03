@@ -14,7 +14,7 @@ import javax.inject.Inject;
 public class AbstractFragment extends Fragment {
 
     @Inject
-    BetaSeriesAPI betaSeriesAPI;
+    protected BetaSeriesAPI betaSeriesAPI;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

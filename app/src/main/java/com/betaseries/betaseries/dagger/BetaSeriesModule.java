@@ -1,5 +1,6 @@
 package com.betaseries.betaseries.dagger;
 
+import com.betaseries.betaseries.authentification.AuthentificationManager;
 import com.betaseries.betaseries.webservice.BetaSeriesAPI;
 import com.betaseries.betaseries.BuildConfig;
 import com.google.gson.Gson;
@@ -9,6 +10,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import de.greenrobot.event.EventBus;
+import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.android.AndroidLog;
 
@@ -33,11 +35,20 @@ public class BetaSeriesModule {
 
     @Singleton
     @Provides
-    public BetaSeriesAPI provideBetaSeriesApi() {
+    public BetaSeriesAPI provideBetaSeriesApi(AuthentificationManager authentificationManager) {
         return new RestAdapter.Builder()
                 .setEndpoint(BuildConfig.URL_BETASERIES)
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setLog(new AndroidLog("Retrofit"))
+                .setRequestInterceptor(request -> {
+                    request.addHeader("X-BetaSeries-Key", BuildConfig.API_KEY);
+                    request.addHeader("X-BetaSeries-Version", "2.4");
+                    request.addHeader("Accept", "application/json");
+
+                    String userToken = authentificationManager.getToken();
+                    if (userToken != null)
+                        request.addHeader("X-BetaSeries-Token", userToken);
+                })
                 .build()
                 .create(BetaSeriesAPI.class);
     }

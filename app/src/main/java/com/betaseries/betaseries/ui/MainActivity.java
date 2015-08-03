@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.betaseries.betaseries.BuildConfig;
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.authentification.model.Authentification;
+import com.betaseries.betaseries.ui.episodes.unseen.UnseenEpisodesFragment;
 import com.crashlytics.android.Crashlytics;
 
 import io.fabric.sdk.android.Fabric;
@@ -29,8 +30,16 @@ public class MainActivity extends AbstractActivity {
                     return null;
                 })
                 .subscribe(authentification -> {
-                    Toast.makeText(MainActivity.this, "Authentifié ! " + authentification.toString(), Toast.LENGTH_SHORT).show();
+
+                    displayUnseenEpisodes();
+
                 });
+    }
+
+    protected void displayUnseenEpisodes() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, UnseenEpisodesFragment.newInstance())
+                .commit();
     }
 
 }
