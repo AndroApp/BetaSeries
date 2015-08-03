@@ -8,8 +8,11 @@ import android.util.Log;
 import com.betaseries.betaseries.dagger.BetaSeriesComponent;
 import com.betaseries.betaseries.dagger.ContextModule;
 import com.betaseries.betaseries.dagger.DaggerBetaSeriesComponent;
+import com.crashlytics.android.Crashlytics;
 
 import java.lang.reflect.Field;
+
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by florentchampigny on 03/06/15.
@@ -23,6 +26,7 @@ public class Application extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
 
+        Fabric.with(this, new Crashlytics());
         Application.application = this;
 
         this.betaSeriesComponent = DaggerBetaSeriesComponent.builder()
