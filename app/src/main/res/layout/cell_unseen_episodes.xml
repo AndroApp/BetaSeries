@@ -1,14 +1,19 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:onlyForPreview="true"
+    app:register="
+        com.github.florent37.carpaccio.controllers.CommonViewController;
+        com.github.florent37.carpaccio.controllers.ImageViewController;
+        com.github.florent37.carpaccio.controllers.TextViewController;
+    "
+    >
 
     <ImageView
         android:id="@+id/image_episode"
-        tools:src="#AAA"
         android:layout_width="match_parent"
         android:layout_height="170dip"
-        android:layout_weight="1"
         android:scaleType="centerCrop"
         android:tag="
                 enablePreview();
@@ -29,7 +34,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="show name"
             android:tag="
                 font(Roboto-Regular.ttf);
                 setText($show.title);
@@ -38,4 +42,4 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-</FrameLayout>
+</com.github.florent37.carpaccio.Carpaccio>
