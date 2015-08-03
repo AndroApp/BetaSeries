@@ -1,6 +1,17 @@
+.gradle
+/local.properties
+app/betaseries.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+
 # Built application files
 *.apk
 *.ap_
+
+.idea/workspace.xml
 
 # Files for the Dalvik VM
 *.dex

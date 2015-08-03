@@ -1,0 +1,98 @@
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'io.fabric'
+
+retrolambda {
+    jvmArgs '-noverify'
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    def betaseries_username = null
+    def betaseries_password = null
+
+    File betaseriesFile = project.file('betaseries.properties')
+    if (betaseriesFile.exists()) {
+        Properties properties = new Properties()
+        properties.load(new FileInputStream(betaseriesFile))
+
+        betaseries_username = properties['betaseries.username']
+        betaseries_password = properties['betaseries.password']
+    }
+    //create a betaseries.properties and set content like
+    //
+    // betaseries.username="YOUR-USERNAME"
+    // betaseries.password="YOUR-PASSWORD"
+
+
+    buildTypes {
+        debug{
+            buildConfigField "String", "URL_BETASERIES", "\"https://api.betaseries.com\""
+            buildConfigField "String",  "API_KEY", "\"d932200243da\""
+            buildConfigField "String",  "BETASERIES_USER", betaseries_username
+            buildConfigField "String",  "BETASERIES_PASSWORD", betaseries_password
+        }
+        release {
+            buildConfigField "String", "URL_BETASERIES", "\"https://api.betaseries.com\""
+            buildConfigField "String",  "API_KEY", "\"d932200243da\""
+            buildConfigField "String",  "BETASERIES_USER", ""
+            buildConfigField "String",  "BETASERIES_PASSWORD", ""
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+def SUPPORT_VERSION = '22.2.1'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.0@aar') {
+        transitive = true;
+    }
+
+    compile 'com.android.support:appcompat-v7:'+SUPPORT_VERSION
+    compile 'com.android.support:recyclerview-v7:'+SUPPORT_VERSION
+    compile 'com.android.support:cardview-v7:'+SUPPORT_VERSION
+    compile 'com.android.support:design:'+SUPPORT_VERSION
+
+    compile 'io.reactivex:rxandroid:0.25.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'de.greenrobot:eventbus:2.4.0'
+
+    compile ('com.github.florent37:carpaccio:1.0.1@aar') {
+        transitive = true
+    }
+
+    compile 'com.yqritc:recyclerview-flexibledivider:1.2.5'
+    compile 'de.hdodenhof:circleimageview:1.3.0'
+
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    //compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    //compile 'com.squareup.okhttp:okhttp:2.0.0'
+
+    //dagger2
+    compile 'com.google.dagger:dagger:2.0.1'
+    apt 'com.google.dagger:dagger-compiler:2.0.1'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+}

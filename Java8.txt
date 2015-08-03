@@ -1,0 +1,10 @@
+download
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+add to your $HOME/.bash_profile
+
+export JAVA8_HOME="$(/usr/libexec/java_home -v 1.8)"
+export JAVA7_HOME="$(/usr/libexec/java_home -v 1.7)"
+export JAVA6_HOME="$(/usr/libexec/java_home -v 1.6)"
+
+export JDK_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home"
