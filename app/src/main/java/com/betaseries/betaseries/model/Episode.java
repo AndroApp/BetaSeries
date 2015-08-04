@@ -1,5 +1,7 @@
 package com.betaseries.betaseries.model;
 
+import com.betaseries.betaseries.utils.DateUtils;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +28,28 @@ public class Episode implements Serializable{
     private String comments;
     private ArrayList<Object> subtitles = new ArrayList<Object>();
 
+    public String getUrlBanner(){
+        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=500&height=300";
+    }
 
+    public String getDateAndDuration(){
+        String dateFr = DateUtils.getDateFr(getDate());
+
+        int length = 0;
+        if (getShow().getLength() != null)
+            length = Integer.parseInt(getShow().getLength());
+
+        //we add the episode duration
+        if (length > 0) {
+            dateFr += " (" + length + " minute ";
+
+            if (length > 1)
+                dateFr += "s";
+
+            dateFr += ")";
+        }
+        return dateFr;
+    }
 
     public Integer getId() {
         return id;

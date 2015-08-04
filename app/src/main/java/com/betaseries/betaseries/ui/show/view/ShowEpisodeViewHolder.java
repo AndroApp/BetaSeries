@@ -64,9 +64,5 @@ public class ShowEpisodeViewHolder extends RecyclerView.ViewHolder {
         //}
 
 
-        String url = "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + episode_object.getId() + "&width=500&height=300";
-
-
-        Picasso.with(itemView.getContext()).load(url).into(image_episode);
     }
 }

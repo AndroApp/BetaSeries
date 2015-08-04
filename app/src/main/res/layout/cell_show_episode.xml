@@ -1,6 +1,5 @@
 <com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
@@ -13,7 +12,6 @@
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/cardMarginVertical"
@@ -33,6 +31,7 @@
             android:tag="
                     enablePreview();
                     previewUrl(http://images.christianpost.com/full/61221/house-of-cards.jpg);
+                    url($episode.urlBanner);
                 " />
 
         <LinearLayout
@@ -41,13 +40,15 @@
             android:layout_height="60dip"
             android:layout_gravity="bottom"
             android:background="@color/white"
-            android:orientation="vertical">
+            android:paddingLeft="16dip"
+            android:paddingRight="16dip"
+            android:paddingTop="4dp"
+            android:orientation="vertical"
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginLeft="16dip"
-                android:layout_marginRight="16dip"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -56,19 +57,20 @@
                     android:id="@+id/saison"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:tag="
+                        font(Roboto-Regular.ttf);
+                        setText($episode.code);
+                    "
                     android:text="S06E05"
-                    android:textColor="@color/black"
-                    android:tag="font(Roboto-Regular.ttf)"
-                     />
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/tiret"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" - "
-                    android:textColor="@color/black"
                     android:tag="font(Roboto-Regular.ttf)"
-                    />
+                    android:text=" - "
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/episode"
@@ -76,9 +78,12 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:lines="1"
+                    android:tag="
+                        font(RobotoLight-Italic.ttf);
+                        setText($episode.title);
+                    "
                     android:text="Laws of Robotics and Party Rigths"
-                    android:textColor="@color/black"
-                    android:tag="font(RobotoLight-Italic.ttf)" />
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
@@ -86,12 +91,13 @@
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginLeft="16dip"
-                android:layout_marginRight="16dip"
                 android:layout_weight="1"
+                android:tag="
+                    font(Roboto-Light.ttf);
+                    setText($episode.getDateAndDuration())
+                    "
                 android:text="Jeudi 7 Mai 2015"
-                android:textColor="@color/black70"
-                android:tag="font(Roboto-Light.ttf)" />
+                android:textColor="@color/black70" />
 
 
         </LinearLayout>
