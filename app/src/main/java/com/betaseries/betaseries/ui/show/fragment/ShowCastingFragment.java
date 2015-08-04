@@ -3,17 +3,19 @@ package com.betaseries.betaseries.ui.show.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.betaseries.betaseries.R;
+import com.betaseries.betaseries.model.*;
+import com.betaseries.betaseries.model.Character;
 import com.betaseries.betaseries.ui.AbstractFragment;
-import com.betaseries.betaseries.ui.show.adapter.ShowCastingAdapter;
-import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
-import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
+import com.github.florent37.carpaccio.Carpaccio;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,14 +43,13 @@ public class ShowCastingFragment extends AbstractFragment {
         showId = getArguments().getString(SHOW_ID);
     }
 
-    @Bind(R.id.recyclerView)
-    RecyclerView recyclerView;
-    ShowCastingAdapter adapter = new ShowCastingAdapter();
+    @Bind(R.id.carpaccio)
+    Carpaccio carpaccio;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recyclerview_simple, container, false);
+        return inflater.inflate(R.layout.fragment_show_characters, container, false);
     }
 
     @Override
@@ -56,17 +57,10 @@ public class ShowCastingFragment extends AbstractFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        final int numberCellsPerLine = 2;
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberCellsPerLine));
-        recyclerView.setAdapter(new RecyclerViewMaterialAdapter(adapter, numberCellsPerLine));
-
-        MaterialViewPagerHelper.registerRecyclerView(getActivity(), recyclerView, null);
-
         betaSeriesAPI.serieListePersonnages(showId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(betaSerieResponse -> {
-                    adapter.addAll(betaSerieResponse.getCharacters());
-                    recyclerView.getAdapter().notifyDataSetChanged();
+                    carpaccio.mapList("character",betaSerieResponse.getCharacters());
                 });
     }
 }
