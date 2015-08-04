@@ -42,7 +42,7 @@ public class UnseenEpisodesFragment extends AbstractFragment {
         CarpaccioLogger.ENABLE_LOG = true;
 
         betaSeriesAPI.episodeListAVoir(20)
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(betaSerieResponse -> {
                     carpaccio.mapList("show", betaSerieResponse.getShows());
                 });
