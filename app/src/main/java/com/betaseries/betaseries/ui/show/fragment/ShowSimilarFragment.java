@@ -11,9 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.betaseries.betaseries.R;
-import com.betaseries.betaseries.model.BetaSerieResponse;
 import com.betaseries.betaseries.ui.AbstractFragment;
-import com.betaseries.betaseries.ui.show.adapter.ShowSimilarsAdapter;
+import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 
@@ -41,11 +40,10 @@ public class ShowSimilarFragment extends AbstractFragment {
         return fragment;
     }
 
-    @Bind(R.id.recyclerView)
-    RecyclerView recyclerView;
+    String showId;
 
-    protected String showId;
-    protected ShowSimilarsAdapter adapter = new ShowSimilarsAdapter();
+    @Bind(R.id.carpaccio)
+    Carpaccio carpaccio;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,7 +54,7 @@ public class ShowSimilarFragment extends AbstractFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recyclerview_simple, container, false);
+        return inflater.inflate(R.layout.fragment_show_similars, container, false);
     }
 
     @Override
@@ -64,18 +62,10 @@ public class ShowSimilarFragment extends AbstractFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        adapter = new ShowSimilarsAdapter();
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new RecyclerViewMaterialAdapter(adapter));
-
-        MaterialViewPagerHelper.registerRecyclerView(getActivity(), recyclerView, null);
-
         betaSeriesAPI.serieSimilaires(showId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(betaSerieResponse -> {
-                    adapter.addAll(betaSerieResponse.getSimilars());
-                    recyclerView.getAdapter().notifyDataSetChanged();
+                    carpaccio.mapList("show",betaSerieResponse.getSimilars());
                 });
     }
 }

@@ -1,0 +1,21 @@
+<com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/carpaccio"
+    app:register="
+        com.github.florent37.carpaccio.controllers.TextViewController;
+        com.github.florent37.carpaccio.controllers.ImageViewController;
+        com.github.florent37.materialviewpager.controllers.ViewController;
+    ">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:tag="
+            materialAdapter(show,cell_show_similar);
+        "
+        />
+
+</com.github.florent37.carpaccio.Carpaccio>

@@ -27,6 +27,7 @@
             android:tag="
                     enablePreview();
                     previewUrl(http://images.christianpost.com/full/61221/house-of-cards.jpg);
+                    url($show.getUrlBanner());
                 "
             android:scaleType="centerCrop" />
 
@@ -42,7 +43,10 @@
             android:paddingRight="16dp"
             android:textColor="@color/white75"
             android:textSize="16sp"
-            android:tag="font(RobotoCondensed-Regular.ttf)"
+            android:tag="
+                setText($show.getShowTitle());
+                font(RobotoCondensed-Regular.ttf);
+                "
             tools:text="House of cards" />
 
     </android.support.v7.widget.CardView>
