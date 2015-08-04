@@ -1,0 +1,101 @@
+<com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="300dp"
+    android:layout_marginLeft="@dimen/cardMarginHorizontal"
+    android:layout_marginRight="@dimen/cardMarginHorizontal"
+    android:layout_marginTop="@dimen/cardMarginVertical"
+    android:orientation="vertical"
+    app:onlyForPreview="true"
+    app:register="
+        com.github.florent37.carpaccio.controllers.TextViewController;
+        com.github.florent37.carpaccio.controllers.ImageViewController;
+    ">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/cardMarginVertical"
+            android:clipToPadding="false"
+            app:cardElevation="4dp"
+            app:cardPreventCornerOverlap="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="14dip">
+
+                <TextView
+                    android:id="@+id/numberSeasonsEpisodes"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:tag="font(RobotoCondensed-Bold.ttf)"
+                    android:text="5 saisons, 44 épisodes"
+                    android:textAllCaps="true"
+                    android:textColor="#E333"
+                    android:textSize="20sp"
+                    tools:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/regardePar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:tag="font(Roboto-Regular.ttf)"
+                    android:text="Regardé par 133 330 membres"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/RatingStar_Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/cardMarginVertical"
+                android:numStars="5"
+                android:stepSize="1" />
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/cardMarginVertical"
+            android:clipToPadding="false"
+            android:padding="16dip"
+            app:cardElevation="4dp"
+            app:cardPreventCornerOverlap="false">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="14dp"
+                android:ellipsize="end"
+                android:tag="
+                lorem();
+                font(RobotoLight-Italic.ttf)"
+                android:textColor="#E333"
+                android:textSize="15sp" />
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</com.github.florent37.carpaccio.Carpaccio>

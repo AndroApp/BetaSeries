@@ -1,5 +1,6 @@
 package com.betaseries.betaseries.ui.episodes.unseen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.betaseries.betaseries.R;
+import com.betaseries.betaseries.model.Show;
 import com.betaseries.betaseries.ui.AbstractFragment;
+import com.betaseries.betaseries.ui.show.ShowDetailActivity;
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioLogger;
+import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,5 +50,11 @@ public class UnseenEpisodesFragment extends AbstractFragment {
                 .subscribe(betaSerieResponse -> {
                     carpaccio.mapList("show", betaSerieResponse.getShows());
                 });
+
+        carpaccio.onItemClick("show", (show, i, view1) -> {
+            Intent intent = new Intent(getActivity(), ShowDetailActivity.class);
+            intent.putExtra(ShowDetailActivity.SHOW, (Show)show);
+            startActivity(intent);
+        });
     }
 }

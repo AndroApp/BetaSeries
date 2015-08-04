@@ -1,0 +1,100 @@
+<com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    app:onlyForPreview="true"
+    app:register="
+        com.github.florent37.carpaccio.controllers.TextViewController;
+        com.github.florent37.carpaccio.controllers.ImageViewController;
+    ">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/cardMarginVertical"
+        android:layout_marginLeft="@dimen/cardMarginHorizontal"
+        android:layout_marginRight="@dimen/cardMarginHorizontal"
+        android:layout_marginTop="@dimen/cardMarginVertical"
+        android:clipToPadding="false"
+        app:cardElevation="4dp"
+        app:cardPreventCornerOverlap="false">
+
+        <ImageView
+            android:id="@+id/image_episode"
+            android:layout_width="match_parent"
+            android:layout_height="170dip"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:tag="
+                    enablePreview();
+                    previewUrl(http://images.christianpost.com/full/61221/house-of-cards.jpg);
+                " />
+
+        <LinearLayout
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/saison"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S06E05"
+                    android:textColor="@color/black"
+                    android:tag="font(Roboto-Regular.ttf)"
+                     />
+
+                <TextView
+                    android:id="@+id/tiret"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" - "
+                    android:textColor="@color/black"
+                    android:tag="font(Roboto-Regular.ttf)"
+                    />
+
+                <TextView
+                    android:id="@+id/episode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="Laws of Robotics and Party Rigths"
+                    android:textColor="@color/black"
+                    android:tag="font(RobotoLight-Italic.ttf)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="16dip"
+                android:layout_marginRight="16dip"
+                android:layout_weight="1"
+                android:text="Jeudi 7 Mai 2015"
+                android:textColor="@color/black70"
+                android:tag="font(Roboto-Light.ttf)" />
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</com.github.florent37.carpaccio.Carpaccio>

@@ -16,6 +16,10 @@ public class ShowSimilar implements Serializable{
     private String login_id;
     private String notes;
 
+    public String getUrlBanner(){
+        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=500&height=500&picked=banner";
+    }
+
     public int getId() {
         return id;
     }
