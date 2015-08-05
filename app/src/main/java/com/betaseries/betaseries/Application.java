@@ -9,6 +9,8 @@ import com.betaseries.betaseries.dagger.BetaSeriesComponent;
 import com.betaseries.betaseries.dagger.ContextModule;
 import com.betaseries.betaseries.dagger.DaggerBetaSeriesComponent;
 import com.crashlytics.android.Crashlytics;
+import com.github.florent37.carpaccio.Carpaccio;
+import com.github.florent37.carpaccio.CarpaccioLogger;
 
 import java.lang.reflect.Field;
 
@@ -28,6 +30,7 @@ public class Application extends MultiDexApplication {
 
         Fabric.with(this, new Crashlytics());
         Application.application = this;
+        CarpaccioLogger.ENABLE_LOG = true;
 
         this.betaSeriesComponent = DaggerBetaSeriesComponent.builder()
                 .contextModule(ContextModule.with(getApplicationContext())) //in case we need a context

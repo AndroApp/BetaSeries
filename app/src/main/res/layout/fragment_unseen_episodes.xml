@@ -8,12 +8,16 @@
         com.github.florent37.carpaccio.controllers.CommonViewController;
         com.github.florent37.carpaccio.controllers.ImageViewController;
         com.github.florent37.carpaccio.controllers.TextViewController;
+        com.betaseries.betaseries.controllers.ParallaxViewController;
     ">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:tag="adapter(show,cell_show)"
+        android:tag="
+            registerParallax();
+            adapter(show,cell_show);
+        "
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
