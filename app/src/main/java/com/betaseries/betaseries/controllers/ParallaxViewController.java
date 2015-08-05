@@ -16,13 +16,11 @@ import java.util.List;
 public class ParallaxViewController extends RecyclerView.OnScrollListener {
 
     int PARALLAX_SPEED = 100;
-    int CELL_IMAGE_FOND_HEIGHT;
 
     protected List<ImageView> imageViewList = new ArrayList<>();
 
     public void registerParallax(RecyclerView recyclerView) {
         recyclerView.addOnScrollListener(this);
-        CELL_IMAGE_FOND_HEIGHT = (int) ControllerHelper.dpFromPx(recyclerView.getContext(), 250);
     }
 
     public void imageParallax(ImageView imageView) {
