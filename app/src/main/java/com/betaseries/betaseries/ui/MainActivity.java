@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.betaseries.betaseries.BuildConfig;
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.ui.episodes.unseen.UnseenEpisodesFragment;
+import com.betaseries.betaseries.ui.show.annuaire.AnnuaireFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,8 +49,8 @@ public class MainActivity extends AbstractActivity {
                 })
                 .subscribe(authentification -> {
 
-                    displayUnseenEpisodes();
-
+                     displayUnseenEpisodes();
+                    //displayAnnuaire();
                 });
     }
 
@@ -74,6 +75,12 @@ public class MainActivity extends AbstractActivity {
     protected void displayUnseenEpisodes() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer, UnseenEpisodesFragment.newInstance())
+                .commit();
+    }
+
+    protected void displayAnnuaire() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, AnnuaireFragment.newInstance())
                 .commit();
     }
 
