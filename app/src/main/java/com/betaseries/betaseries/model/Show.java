@@ -262,4 +262,8 @@ public class Show implements Serializable{
     public String getUrlBanner(){
         return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=500&height=500&picked=banner";
     }
+
+    public String getUrlShow(){
+        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=200&height=200&picked=show";
+    }
 }

@@ -13,7 +13,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:tag="adapter(show,cell_unseen_episodes)"
+        android:tag="adapter(show,cell_show)"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
