@@ -30,30 +30,22 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="170dip"
-        android:background="@drawable/gradient_black_85"
-
-        />
+        android:background="@drawable/gradient_black_85" />
 
 
-    <RelativeLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="22dip"
         android:layout_gravity="bottom"
+        android:gravity="center_vertical"
         android:background="@color/white"
         android:paddingLeft="120dp"
-        android:paddingRight="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:tag="
+        android:paddingRight="15dp"
+        android:tag="
                 font(Roboto-Regular.ttf);
-                setText(1h31min);
-            "
-            android:textColor="@color/black50"
-            android:textSize="10sp" />
-    </RelativeLayout>
+                setText(1h31min);"
+        android:textColor="@color/black50"
+        android:textSize="10sp" />
 
 
     <TextView
@@ -93,8 +85,8 @@
         android:layout_marginRight="@dimen/cardMarginHorizontal"
         android:layout_marginTop="@dimen/cardMarginVertical"
         android:clipToPadding="false"
-        app:cardElevation="4dp"
         app:cardCornerRadius="1dp"
+        app:cardElevation="4dp"
         app:cardPreventCornerOverlap="false">
 
         <ImageView
