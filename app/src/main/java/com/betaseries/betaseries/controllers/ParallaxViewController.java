@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.betaseries.betaseries.R;
 import com.github.florent37.carpaccio.controllers.ControllerHelper;
 
 import java.util.ArrayList;
@@ -21,13 +20,13 @@ public class ParallaxViewController extends RecyclerView.OnScrollListener {
 
     protected List<ImageView> imageViewList = new ArrayList<>();
 
-    public void registerParallax(RecyclerView recyclerView){
+    public void registerParallax(RecyclerView recyclerView) {
         recyclerView.addOnScrollListener(this);
-        CELL_IMAGE_FOND_HEIGHT = (int) ControllerHelper.dpFromPx(recyclerView.getContext(),250);
+        CELL_IMAGE_FOND_HEIGHT = (int) ControllerHelper.dpFromPx(recyclerView.getContext(), 250);
     }
 
-    public void imageParallax(ImageView imageView){
-        if(!imageViewList.contains(imageView))
+    public void imageParallax(ImageView imageView) {
+        if (!imageViewList.contains(imageView))
             imageViewList.add(imageView);
     }
 
@@ -36,38 +35,27 @@ public class ParallaxViewController extends RecyclerView.OnScrollListener {
         super.onScrollStateChanged(recyclerView, newState);
     }
 
-    View top = null;
+    public static float limit(float min, float value, float max) {
+        return Math.max(Math.min(value, max), min);
+    }
+
+    View firstVisibleView = null;
+    float recyclerviewCenterY = -1;
+    Rect rect = new Rect();
+    View currentImageView;
 
     @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-        super.onScrolled(recyclerView, dx, dy);
+        if (recyclerView.getChildCount() > 0) {
+            if (firstVisibleView == null) firstVisibleView = recyclerView.getChildAt(0);
+            if (recyclerviewCenterY == -1) recyclerviewCenterY = recyclerView.getMeasuredHeight() / 2 + recyclerView.getTop();
 
-        if (recyclerView.getChildCount() == 0)
-            return;
+            for (int i = 0, count = imageViewList.size(); i < count; ++i) {
+                currentImageView = imageViewList.get(i);
+                currentImageView.getGlobalVisibleRect(rect);
 
-        int first = 0;
-        if (top == null)
-            top = recyclerView.getChildAt(first);
-
-        int last = first + recyclerView.getLayoutManager().getItemCount();
-
-        float centerY = recyclerView.getMeasuredHeight() / 2 + recyclerView.getTop();
-
-        Rect rect = new Rect();
-        View viewCell;
-        for (int i = first; i < last; ++i) {
-            if((viewCell = recyclerView.getChildAt(i)) != null) {
-                viewCell.getGlobalVisibleRect(rect);
-
-                float diffCenter = (centerY - rect.top);
-
-                View viewToParallax = viewCell.findViewById(R.id.image);
-
-                float yOffset = diffCenter / viewToParallax.getHeight();
-
-                yOffset = Math.max(Math.min(yOffset,1),-1);
-
-                viewToParallax.setTranslationY((-1f + yOffset) * PARALLAX_SPEED);
+                float yOffset = limit(-1, (recyclerviewCenterY - rect.top) / currentImageView.getHeight(), 1);
+                currentImageView.setTranslationY((-1f + yOffset) * PARALLAX_SPEED);
             }
         }
     }
