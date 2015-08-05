@@ -18,6 +18,8 @@
         android:clipToPadding="true"
         android:background="@drawable/gradient_placeholder">
 
+        <!-- this image must be higher than the cell, to enable parallax ! -->
+
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
