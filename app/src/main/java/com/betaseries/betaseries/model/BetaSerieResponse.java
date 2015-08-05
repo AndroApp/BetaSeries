@@ -2,7 +2,6 @@ package com.betaseries.betaseries.model;
 
 import java.lang.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by florentchampigny on 10/04/15.
@@ -15,7 +14,7 @@ public class BetaSerieResponse {
     private ArrayList<Picture> pictures;
     private ArrayList<Video> videos;
     private ArrayList<ShowSimilar> similars;
-    private ArrayList<java.lang.Character> characters;
+    private ArrayList<Character> characters;
 
     private ArrayList<Object> errors;
 
@@ -49,11 +48,11 @@ public class BetaSerieResponse {
         this.shows = shows;
     }
 
-    public ArrayList<java.lang.Character> getCharacters() {
+    public ArrayList<Character> getCharacters() {
         return characters;
     }
 
-    public void setCharacters(ArrayList<java.lang.Character> characters) {
+    public void setCharacters(ArrayList<Character> characters) {
         this.characters = characters;
     }
 

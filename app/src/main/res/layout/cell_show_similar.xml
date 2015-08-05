@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    app:onlyForPreview="true"
+    app:register="
+        com.github.florent37.carpaccio.controllers.TextViewController;
+        com.github.florent37.carpaccio.controllers.ImageViewController;
+    ">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dip"
+        app:cardElevation="4dp"
+        app:cardPreventCornerOverlap="false">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="
+                    enablePreview();
+                    previewUrl(http://images.christianpost.com/full/61221/house-of-cards.jpg);
+                    url($show.getUrlBanner());
+                "
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_gravity="bottom"
+            android:layout_centerInParent="true"
+            android:background="#A333"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="@color/white75"
+            android:textSize="16sp"
+            android:tag="
+                setText($show.getShowTitle());
+                font(RobotoCondensed-Regular.ttf);
+                "
+            tools:text="House of cards" />
+
+    </android.support.v7.widget.CardView>
+
+</com.github.florent37.carpaccio.Carpaccio>
