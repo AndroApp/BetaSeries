@@ -2,11 +2,14 @@ package com.betaseries.betaseries.ui.show.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.betaseries.betaseries.R;
+import com.betaseries.betaseries.model.Picture;
 import com.betaseries.betaseries.model.Show;
+import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,6 +31,9 @@ public class ShowDetailViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.ratingBar)
     RatingBar ratingBar;
 
+    @Bind(R.id.image_serie)
+    ImageView image_serie;
+
     public ShowDetailViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
@@ -42,5 +48,7 @@ public class ShowDetailViewHolder extends RecyclerView.ViewHolder {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        Picasso.with(itemView.getContext()).load(show.getUrlBanner()).centerCrop().fit().into(image_serie);
     }
 }

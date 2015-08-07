@@ -10,7 +10,7 @@
     <string name="show.similars">similaires</string>
 
     <string name="nb_season_episodes">%1$s saisons, %2$s épisodes</string>
-    <string name="regardes_par">Regadrée par %1$s membres</string>
+    <string name="regardes_par">Regardée par %1$s membres</string>
     <string name="noter_episode">Notez votre épisode !</string>
 
 </resources>

@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         app:viewpager_color="@color/primary"
         app:viewpager_enableToolbarElevation="true"
-        app:viewpager_headerAdditionalHeight="20dp"
+        app:viewpager_headerAdditionalHeight="15dp"
         app:viewpager_headerAlpha="0.9"
         app:viewpager_headerHeight="200dp"
         app:viewpager_hideLogoWithFade="false"
