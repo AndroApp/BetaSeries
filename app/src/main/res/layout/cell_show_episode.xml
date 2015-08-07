@@ -19,7 +19,8 @@
         android:layout_marginRight="@dimen/cardMarginHorizontal"
         android:layout_marginTop="@dimen/cardMarginVertical"
         android:clipToPadding="false"
-        app:cardElevation="4dp"
+        app:cardElevation="1dp"
+        app:cardCornerRadius="1dp"
         app:cardPreventCornerOverlap="false">
 
         <ImageView

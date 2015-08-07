@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_margin="10dip"
-        app:cardElevation="4dp"
+        app:cardElevation="1dp"
+        app:cardCornerRadius="1dp"
         app:cardPreventCornerOverlap="false">
 
         <ImageView
