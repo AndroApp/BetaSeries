@@ -16,7 +16,8 @@
         android:layout_height="match_parent"
         android:tag="
             registerParallax();
-            adapter(show,cell_show);
+            adapter(show,cell_show_prop);
+            columns(2);
         "
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
