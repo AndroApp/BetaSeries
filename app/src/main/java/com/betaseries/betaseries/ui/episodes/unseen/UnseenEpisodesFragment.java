@@ -3,7 +3,10 @@ package com.betaseries.betaseries.ui.episodes.unseen;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,9 +55,10 @@ public class UnseenEpisodesFragment extends AbstractFragment {
                 });
 
         carpaccio.onItemClick("show", (show, i, view1) -> {
-            Intent intent = new Intent(getActivity(), ShowDetailActivity.class);
-            intent.putExtra(ShowDetailActivity.SHOW, (Show)show);
-            startActivity(intent);
+            Intent intent = new Intent(getActivity(), UnseedEpisodesDetailActivity.class);
+            intent.putExtra(UnseedEpisodesDetailActivity.SHOW, (Show)show);
+            Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), Pair.create(view1.findViewById(R.id.image_serie), "image")).toBundle();
+            ActivityCompat.startActivity(getActivity(),intent, bundle);
         });
     }
 }

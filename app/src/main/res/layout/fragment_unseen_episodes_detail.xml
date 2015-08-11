@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/carpaccio"
+    app:register="
+        com.github.florent37.carpaccio.controllers.CommonViewController;
+        com.github.florent37.carpaccio.controllers.ImageViewController;
+        com.github.florent37.carpaccio.controllers.TextViewController;
+    ">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#333"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:alpha=".6"
+            android:scaleType="centerCrop"
+            android:tag="
+                    url($show.getUrlBackground());
+                " />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="170dp"
+            android:layout_marginBottom="-20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
+            />
+
+        <FrameLayout
+            android:elevation="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+
+
+            <ImageView
+                android:transitionName="image"
+                android:id="@+id/image_serie"
+                android:layout_width="100dip"
+                android:layout_height="150dip"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="40dp"
+                android:scaleType="centerCrop"
+                android:tag="
+                    url($show.getUrlShow());
+                "
+                tools:src="@drawable/arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="60dip"
+                android:layout_marginLeft="150dip"
+                android:tag="
+                    font(Roboto-Regular.ttf);
+                    setText($show.title);
+                "
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                tools:text="Arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="40dip"
+                android:layout_marginLeft="150dip"
+                android:tag="
+                    font(Roboto-Regular.ttf);
+                    setText(Fantastique);
+                "
+                android:textColor="@color/white75"
+                android:textSize="13sp"
+                tools:text="Fantastique" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+</com.github.florent37.carpaccio.Carpaccio>
+
