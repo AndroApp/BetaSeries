@@ -39,6 +39,7 @@ public class UnseenEpisodesDetailFragment extends Fragment {
 
         show = (Show) getArguments().getSerializable("show");
         carpaccio.mapObject("show",show);
+        carpaccio.mapList("episode",show.getUnseen());
 
         getActivity().supportStartPostponedEnterTransition();
     }

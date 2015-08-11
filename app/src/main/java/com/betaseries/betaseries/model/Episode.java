@@ -29,7 +29,11 @@ public class Episode implements Serializable{
     private ArrayList<Object> subtitles = new ArrayList<Object>();
 
     public String getUrlBanner(){
-        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=500&height=300";
+        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=800&height=450";
+    }
+
+    public String getSeasonEpisode(){
+        return season+" - "+episode;
     }
 
     public String getDateAndDuration(){
