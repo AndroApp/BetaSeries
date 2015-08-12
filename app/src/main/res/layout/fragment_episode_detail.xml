@@ -117,10 +117,26 @@
                 tools:text="Pilot" />
 
             <TextView
+                android:id="@+id/code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/episodeName"
                 android:layout_below="@+id/episodeName"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="5dp"
+                android:tag="
+                    font(Roboto-Light.ttf);
+                    setText($episode.code);
+                "
+                android:textColor="@color/white80"
+                android:textSize="18sp"
+                tools:text="S01E01" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/episodeName"
+                android:layout_below="@+id/code"
                 android:layout_marginRight="20dip"
                 android:layout_marginTop="10dp"
                 android:tag="
