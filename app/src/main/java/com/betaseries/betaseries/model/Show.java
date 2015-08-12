@@ -270,4 +270,8 @@ public class Show implements Serializable{
     public String getUrlBackground(){
         return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=600&height=300&picked=show";
     }
+
+    public String getUnseenCount(){
+        return String.valueOf(unseen.size());
+    }
 }

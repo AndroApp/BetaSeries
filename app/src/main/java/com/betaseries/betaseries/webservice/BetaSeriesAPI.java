@@ -154,6 +154,6 @@ public interface BetaSeriesAPI {
 
 
     @GET("/episodes/list")
-    Observable<BetaSerieResponse> episodeListAVoir(@Query("limit") int limit);
+    Observable<BetaSerieResponse> episodeListAVoir();
 
 }

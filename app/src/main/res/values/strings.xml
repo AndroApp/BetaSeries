@@ -14,5 +14,7 @@
     <string name="noter_episode">Notez votre épisode !</string>
     <string name="drawer.unseen_episodes">Episodes à voir</string>
     <string name="drawer.shows">Séries</string>
+    <string name="episodes">épisodes</string>
+    <string name="unseen_episodes">épisodes non vus</string>
 
 </resources>
