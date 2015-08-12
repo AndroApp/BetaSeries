@@ -28,6 +28,16 @@ public class Episode implements Serializable{
     private String comments;
     private ArrayList<Object> subtitles = new ArrayList<Object>();
 
+    private boolean seen = false;
+
+    public boolean isSeen() {
+        return seen;
+    }
+
+    public void setSeen(boolean seen) {
+        this.seen = seen;
+    }
+
     public String getUrlBanner(){
         return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=800&height=450";
     }
