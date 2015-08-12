@@ -16,6 +16,13 @@
     <string name="drawer.unseen_episodes">Episodes à voir</string>
     <string name="drawer.shows">Séries</string>
     <string name="episodes">épisodes</string>
-    <string name="unseen_episodes">épisodes non vus</string>
+    <string name="unseen_episodes">Episodes à regarder</string>
+    <string name="mes_series">Mes séries</string>
+    <string name="planning">Planning</string>
+    <string name="annuaire_des_series">Annuaire des séries</string>
+    <string name="mon_profil">Mon profil</string>
+    <string name="parametres">Paramètres</string>
+    <string name="a_propos_betaseries">A propos de betaseries</string>
+    <string name="deconnexion">Déconnexion</string>
 
 </resources>

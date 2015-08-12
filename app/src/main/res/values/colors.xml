@@ -29,9 +29,11 @@
     <color name="black75">#bf000000</color>
     <color name="black80">#cc000000</color>
     <color name="black85">#d9000000</color>
+    <color name="black87">#757575</color>
     <color name="black90">#e6000000</color>
     <color name="black95">#f2000000</color>
     <color name="black">@android:color/black</color>
+    <color name="colorBackground">#f3f3f3</color>
 
     <!-- WHITE ALPHA -->
     <color name="white05">#0dffffff</color>

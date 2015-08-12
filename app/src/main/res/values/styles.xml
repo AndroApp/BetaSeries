@@ -47,8 +47,8 @@
 
     <style name="ItemImageDrawer">
         <item name="android:id">@id/img_label_item_drawer</item>
-        <item name="android:layout_width">20dip</item>
-        <item name="android:layout_height">20dip</item>
+        <item name="android:layout_width">24dip</item>
+        <item name="android:layout_height">24dip</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
@@ -60,7 +60,7 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_marginLeft">@dimen/drawer_item_margin_size</item>
         <item name="android:textColor">@color/item_inactif</item>
-        <item name="android:textSize">@dimen/txt_size_large</item>
+        <item name="android:textSize">@dimen/txt_size_normal</item>
     </style>
 
     <style name="ItemContainerDrawer">

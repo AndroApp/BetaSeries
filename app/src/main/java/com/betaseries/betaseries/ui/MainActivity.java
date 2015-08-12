@@ -34,17 +34,20 @@ public class MainActivity extends AbstractDrawerActivity {
                 });
     }
 
+
     @OnClick(R.id.drawer_unseen_episodes)
     protected void displayUnseenEpisodes() {
         setContentFragment(UnseenShowsFragment.newInstance());
         closeDrawer();
     }
 
+
     @OnClick(R.id.drawer_shows)
     protected void displayAnnuaire() {
         setContentFragment(AnnuaireFragment.newInstance());
         closeDrawer();
     }
+
 
 }
 
