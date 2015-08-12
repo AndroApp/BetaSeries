@@ -24,5 +24,8 @@
     <string name="parametres">Paramètres</string>
     <string name="a_propos_betaseries">A propos de betaseries</string>
     <string name="deconnexion">Déconnexion</string>
+    <string name="unseen_episodes">épisodes non vus</string>
+    <string name="seasons">saisons</string>
+
 
 </resources>

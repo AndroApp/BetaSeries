@@ -104,7 +104,8 @@
         android:layout_marginLeft="@dimen/cardMarginHorizontal"
         android:layout_marginRight="@dimen/cardMarginHorizontal"
         android:layout_marginTop="@dimen/cardMarginVertical"
-        app:cardElevation="8dp">
+        app:cardCornerRadius="0dp"
+        app:cardElevation="10dp">
 
         <ImageView
             android:id="@+id/image_serie"
