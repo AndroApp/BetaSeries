@@ -10,6 +10,7 @@
         com.betaseries.betaseries.controllers.EventImageViewController;
         com.github.florent37.carpaccio.controllers.TextViewController;
         com.betaseries.betaseries.controllers.UnseedDetailParallax;
+        com.betaseries.betaseries.controllers.RatingViewController;
     ">
 
     <android.support.v7.widget.RecyclerView

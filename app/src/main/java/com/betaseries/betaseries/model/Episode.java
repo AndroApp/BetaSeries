@@ -43,26 +43,21 @@ public class Episode implements Serializable{
     }
 
     public String getSeasonEpisode(){
-        return season+" - "+episode;
+        return "S"+season+" E"+episode;
     }
 
-    public String getDateAndDuration(){
+    public String getDateFr(){
         String dateFr = DateUtils.getDateFr(getDate());
 
         int length = 0;
         if (getShow().getLength() != null)
             length = Integer.parseInt(getShow().getLength());
 
-        //we add the episode duration
-        if (length > 0) {
-            dateFr += " (" + length + " minute ";
-
-            if (length > 1)
-                dateFr += "s";
-
-            dateFr += ")";
-        }
         return dateFr;
+    }
+
+    public String getDateFrSmall(){
+        return DateUtils.getDateFrSmall(getDate());
     }
 
     public Integer getId() {

@@ -85,6 +85,23 @@ public class DateUtils {
         return "";
     }
 
+    public static String getDateFrSmall(String date){
+        SimpleDateFormat format1=new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date dt1=format1.parse(date);
+            DateFormat format2=new SimpleDateFormat("EEEE");
+
+            Calendar c = Calendar.getInstance();
+            c.setTime(dt1);
+
+            return  c.get(Calendar.DAY_OF_MONTH) + " " + getMonthName(c.get(Calendar.MONTH)+1) + " " + c.get(Calendar.YEAR);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
     public static boolean beforeNow(String date) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
