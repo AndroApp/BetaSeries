@@ -1,5 +1,37 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!-- HORIZONTAL MARGIN -->
+
+    <dimen name="activity_horizontal_margin_extra_small">4dip</dimen>
+    <dimen name="activity_horizontal_margin_small">8dip</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin_large">32dp</dimen>
+    <dimen name="activity_horizontal_margin_extra_large">48dip</dimen>
+    <dimen name="activity_horizontal_margin_extra_extra_large">64dip</dimen>
+    <dimen name="activity_horizontal_margin_big">96dip</dimen>
+
+    <!-- VERTICAL MARGIN -->
+    <dimen name="activity_vertical_margin_extra_extra_small">2dip</dimen>
+    <dimen name="activity_vertical_margin_extra_small">4dip</dimen>
+    <dimen name="activity_vertical_margin_small">8dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin_large">32dp</dimen>
+    <dimen name="activity_vertical_margin_extra_large">48dip</dimen>
+    <dimen name="activity_vertical_margin_extra_extra_large">64dip</dimen>
+    <dimen name="activity_vertical_margin_big">96dip</dimen>
+
+    <!-- TAILLE TEXTE -->
+
+    <dimen name="txt_size_extra_extra_small">8sp</dimen>
+    <dimen name="txt_size_extra_small">10sp</dimen>
+    <dimen name="txt_size_small">12sp</dimen>
+    <dimen name="txt_size_normal">14sp</dimen>
+    <dimen name="txt_size_large">16sp</dimen>
+    <dimen name="txt_size_extra_large">18sp</dimen>
+    <dimen name="txt_size_extra_extra_large">22sp</dimen>
+
+
+    <!-- -->
+    <dimen name="drawer_item_size">48dp</dimen>
+    <dimen name="drawer_item_margin_size">48dp</dimen>
 </resources>

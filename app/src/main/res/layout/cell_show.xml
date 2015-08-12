@@ -58,7 +58,7 @@
         android:paddingRight="15dp"
         android:tag="
                 font(Roboto-Regular.ttf);
-                setText(1h31min);"
+                setText($show.episodeNonVues());"
         android:textColor="@color/black50"
         android:textSize="10sp" />
 
@@ -83,10 +83,11 @@
         android:layout_centerVertical="true"
         android:layout_gravity="bottom"
         android:layout_marginBottom="35dip"
+        android:visibility="gone"
         android:layout_marginLeft="120dip"
         android:tag="
                 font(Roboto-Regular.ttf);
-                setText(Fantastique);
+                setText($show.episodeNonVues());
             "
         android:textColor="@color/white75"
         android:textSize="13sp" />

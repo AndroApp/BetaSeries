@@ -1,5 +1,8 @@
 package com.betaseries.betaseries.model;
 
+import com.betaseries.betaseries.Application;
+import com.betaseries.betaseries.R;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,7 @@ public class Show implements Serializable{
     private User user;
     private String resource_url;
     private ArrayList<Episode> unseen;
+
 
 
     public Boolean isIn_account() {
@@ -269,5 +273,10 @@ public class Show implements Serializable{
 
     public String getUrlBackground(){
         return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=800&height=400&picked=show";
+    }
+
+    public String episodeNonVues(){
+
+        return Application.app().getString(R.string.nb_episode_show_unseen, this.unseen.size());
     }
 }

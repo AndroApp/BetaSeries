@@ -1,4 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
@@ -42,4 +44,32 @@
         <item name="android:thumb">@null</item>
     </style>
 
+
+    <style name="ItemImageDrawer">
+        <item name="android:id">@id/img_label_item_drawer</item>
+        <item name="android:layout_width">20dip</item>
+        <item name="android:layout_height">20dip</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="ItemLabelDrawer">
+        <item name="android:id">@id/txt_label_item_drawer</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">@dimen/drawer_item_margin_size</item>
+        <item name="android:textColor">@color/item_inactif</item>
+        <item name="android:textSize">@dimen/txt_size_large</item>
+    </style>
+
+    <style name="ItemContainerDrawer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/drawer_item_size</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:background">@drawable/ripple_black_05</item>
+    </style>
+
+    <color name="item_inactif">#757575</color>
 </resources>
