@@ -13,17 +13,16 @@
     <string name="regardes_par">Regadrée par %1$s membres</string>
     <string name="noter_episode">Notez votre épisode !</string>
     <string name="nb_episode_show_unseen">%1$s épisodes non vus</string>
-    <string name="drawer.unseen_episodes">Episodes à voir</string>
     <string name="drawer.shows">Séries</string>
     <string name="episodes">épisodes</string>
-    <string name="unseen_episodes">Episodes à regarder</string>
-    <string name="mes_series">Mes séries</string>
-    <string name="planning">Planning</string>
-    <string name="annuaire_des_series">Annuaire des séries</string>
-    <string name="mon_profil">Mon profil</string>
-    <string name="parametres">Paramètres</string>
-    <string name="a_propos_betaseries">A propos de betaseries</string>
-    <string name="deconnexion">Déconnexion</string>
+    <string name="drawer.unseen_episodes">Episodes à regarder</string>
+    <string name="drawer.mes_series">Mes séries</string>
+    <string name="drawer.planning">Planning</string>
+    <string name="drawer.annuaire_des_series">Annuaire des séries</string>
+    <string name="drawer.mon_profil">Mon profil</string>
+    <string name="drawer.parametres">Paramètres</string>
+    <string name="drawer.a_propos_betaseries">A propos de betaseries</string>
+    <string name="drawer.deconnexion">Déconnexion</string>
     <string name="unseen_episodes">épisodes non vus</string>
     <string name="seasons">saisons</string>
 

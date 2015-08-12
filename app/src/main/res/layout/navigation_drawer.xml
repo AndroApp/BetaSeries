@@ -110,7 +110,7 @@
                     android:tag="
                 font(Roboto-Medium.ttf);
                 "
-                    android:text="@string/mes_series" />
+                    android:text="@string/drawer.mes_series" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -126,7 +126,7 @@
                     android:tag="
                 font(Roboto-Medium.ttf);
                 "
-                    android:text="@string/planning" />
+                    android:text="@string/drawer.planning" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -142,7 +142,7 @@
                     android:tag="
                 font(Roboto-Medium.ttf);
                 "
-                    android:text="@string/annuaire_des_series" />
+                    android:text="@string/drawer.annuaire_des_series" />
             </RelativeLayout>
 
             <View
@@ -164,7 +164,7 @@
                     android:tag="
                 font(Roboto-Medium.ttf);
                 "
-                    android:text="@string/parametres" />
+                    android:text="@string/drawer.parametres" />
             </RelativeLayout>
 
 
@@ -180,7 +180,7 @@
                     android:tag="
                 font(Roboto-Medium.ttf);
                 "
-                    android:text="@string/a_propos_betaseries" />
+                    android:text="@string/drawer.a_propos_betaseries" />
             </RelativeLayout>
 
 
@@ -196,7 +196,7 @@
                     android:tag="
                 font(Roboto-Medium.ttf);
                 "
-                    android:text="@string/deconnexion"
+                    android:text="@string/drawer.deconnexion"
 
                     />
             </RelativeLayout>
