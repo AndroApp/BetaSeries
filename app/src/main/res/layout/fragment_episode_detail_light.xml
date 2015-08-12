@@ -5,7 +5,7 @@
     android:id="@+id/carpaccio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222"
+    android:background="#DEDEDE"
     app:register="
         ParallaxViewController;
         controllers.EventImageViewController;
@@ -50,7 +50,7 @@
                     android:tag="
                         parallaxY(0.3);
                     "
-                    android:src="@drawable/play_black" />
+                    android:src="@drawable/play" />
             </FrameLayout>
 
             <View
@@ -96,7 +96,7 @@
                     font(Roboto-Thin.ttf);
                     setText($show.title);
                 "
-                android:textColor="@color/white"
+                android:textColor="@color/white80"
                 android:textSize="25sp"
                 tools:text="Arrow" />
 
@@ -112,7 +112,7 @@
                     font(Roboto-Medium.ttf);
                     setText($episode.title);
                 "
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="25sp"
                 tools:text="Pilot" />
 
@@ -128,7 +128,7 @@
                     font(Roboto-Light.ttf);
                     setText($episode.code);
                 "
-                android:textColor="@color/white80"
+                android:textColor="@color/black80"
                 android:textSize="18sp"
                 tools:text="S01E01" />
 
@@ -143,7 +143,7 @@
                     font(Roboto-Thin.ttf);
                     setText($episode.dateFrSmall);
                 "
-                android:textColor="@color/white80"
+                android:textColor="@color/black80"
                 android:textSize="12sp"
                 tools:text="15 janvier 1995" />
 
@@ -163,74 +163,9 @@
                     setText($episode.description);
                     lorem();
                 "
-                    android:textColor="@color/white20"
+                    android:textColor="@color/black60"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:tag="
-                    setText($episode.description);
-                    lorem();
-                "
-                    android:textColor="@color/white20"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:tag="
-                    setText($episode.description);
-                    lorem();
-                "
-                    android:textColor="@color/white20"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:tag="
-                    setText($episode.description);
-                    lorem();
-                "
-                    android:textColor="@color/white20"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:tag="
-                    setText($episode.description);
-                    lorem();
-                "
-                    android:textColor="@color/white20"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:tag="
-                    setText($episode.description);
-                    lorem();
-                "
-                    android:textColor="@color/white20"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:tag="
-                    setText($episode.description);
-                    lorem();
-                "
-                    android:textColor="@color/white20"
-                    android:textSize="16sp" />
             </LinearLayout>
 
 
