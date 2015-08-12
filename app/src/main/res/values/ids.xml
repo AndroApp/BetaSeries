@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="txt_label_item_drawer"/>
+    <item type="id" name="img_label_item_drawer"/>
+
+    <item type="id" name="txt_label_hour"/>
+    <item type="id" name="txt_value_hour"/>
+    <item type="id" name="img_fiche_restaurant"/>
+    <item type="id" name="github"/>
+    <item type="id" name="img_presented"/>
+    <item type="id" name="img_photo"/>
+    <item type="id" name="edit_type"/>
+    <item type="id" name="value"/>
+    <item type="id" name="radioGroup"/>
+    <item type="id" name="checkBoxGroup"/>
+
+</resources>
