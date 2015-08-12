@@ -37,14 +37,14 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="170dip"
+        android:layout_height="match_parent"
         android:background="@drawable/movie_tile_shadow"
 
         />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="170dip"
+        android:layout_height="match_parent"
         android:background="@drawable/gradient_black_85" />
 
 
@@ -101,10 +101,8 @@
         android:layout_marginLeft="@dimen/cardMarginHorizontal"
         android:layout_marginRight="@dimen/cardMarginHorizontal"
         android:layout_marginTop="@dimen/cardMarginVertical"
-        android:clipToPadding="false"
-        app:cardCornerRadius="1dp"
         app:cardElevation="8dp"
-        app:cardPreventCornerOverlap="false">
+        >
 
         <ImageView
             android:id="@+id/image_serie"

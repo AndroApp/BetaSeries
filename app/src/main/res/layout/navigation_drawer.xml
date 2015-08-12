@@ -13,8 +13,28 @@
         android:contentDescription="Header" />
 
     <LinearLayout
-        android:contentDescription="entries"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:contentDescription="entries"
+        android:orientation="vertical"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:id="@+id/drawer_unseen_episodes"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="15dp"
+            android:text="@string/drawer.unseen_episodes"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/drawer_shows"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="15dp"
+            android:text="@string/drawer.shows"
+            android:gravity="center_vertical"/>
+
+    </LinearLayout>
 
 </LinearLayout>
