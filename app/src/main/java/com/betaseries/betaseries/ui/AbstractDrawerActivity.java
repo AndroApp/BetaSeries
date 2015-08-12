@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.betaseries.betaseries.R;
 
@@ -27,6 +28,7 @@ public class AbstractDrawerActivity extends AbstractActivity {
         if (drawerToggle == null && drawerLayout != null) {
             drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, 0, 0);
             drawerLayout.setDrawerListener(drawerToggle);
+            drawerLayout.setOnClickListener(v -> {});
         }
 
         if (drawerToggle != null)
