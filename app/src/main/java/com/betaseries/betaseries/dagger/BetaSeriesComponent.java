@@ -2,8 +2,10 @@ package com.betaseries.betaseries.dagger;
 
 import com.betaseries.betaseries.authentification.AuthentificationManager;
 import com.betaseries.betaseries.authentification.AuthentificationModule;
+import com.betaseries.betaseries.back.episodes.unseen.UnseenManager;
 import com.betaseries.betaseries.ui.AbstractActivity;
 import com.betaseries.betaseries.ui.AbstractFragment;
+import com.betaseries.betaseries.ui.episodes.unseen.UnseenShowsFragment;
 import com.betaseries.betaseries.webservice.BetaSeriesAPI;
 import com.google.gson.Gson;
 
@@ -20,7 +22,10 @@ public interface BetaSeriesComponent {
     BetaSeriesAPI githubApi();
     Gson gson();
     EventBus eventBus();
+    UnseenManager unseenManager();
 
     void inject(AbstractFragment abstractFragment);
     void inject(AbstractActivity abstractActivity);
+
+    void inject(UnseenShowsFragment unseenShowsFragment);
 }

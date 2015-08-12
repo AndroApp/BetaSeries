@@ -1,6 +1,10 @@
 package com.betaseries.betaseries.dagger;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.betaseries.betaseries.authentification.AuthentificationManager;
+import com.betaseries.betaseries.back.episodes.unseen.UnseenManager;
 import com.betaseries.betaseries.webservice.BetaSeriesAPI;
 import com.betaseries.betaseries.BuildConfig;
 import com.google.gson.Gson;
@@ -31,6 +35,12 @@ public class BetaSeriesModule {
     @Provides
     public Gson provideGson() {
         return new Gson();
+    }
+
+    @Singleton
+    @Provides
+    public UnseenManager provideUnseenManager(Gson gson, Context context) {
+        return new UnseenManager(context,gson);
     }
 
     @Singleton

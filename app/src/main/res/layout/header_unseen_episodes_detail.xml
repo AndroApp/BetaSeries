@@ -61,6 +61,7 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="50dip"
             android:layout_marginLeft="140dip"
+            android:transitionName="name"
             android:tag="
                     font(Roboto-Regular.ttf);
                     setText($show.title);

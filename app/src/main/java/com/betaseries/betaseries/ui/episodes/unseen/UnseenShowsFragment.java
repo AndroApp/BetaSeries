@@ -10,11 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.betaseries.betaseries.Application;
 import com.betaseries.betaseries.R;
+import com.betaseries.betaseries.back.episodes.unseen.UnseenManager;
 import com.betaseries.betaseries.model.Show;
 import com.betaseries.betaseries.ui.AbstractFragment;
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioLogger;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,6 +36,9 @@ public class UnseenShowsFragment extends AbstractFragment {
     @Bind(R.id.carpaccio)
     Carpaccio carpaccio;
 
+    @Inject
+    UnseenManager unseenManager;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,12 +49,15 @@ public class UnseenShowsFragment extends AbstractFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        Application.app().component().inject(this);
 
         CarpaccioLogger.ENABLE_LOG = true;
 
+        carpaccio.mapList("show", unseenManager.load().getUnseens());
         betaSeriesAPI.episodeListAVoir()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(betaSerieResponse -> {
+                    unseenManager.replace(betaSerieResponse.getShows()).save();
                     carpaccio.mapList("show", betaSerieResponse.getShows());
                 });
 
