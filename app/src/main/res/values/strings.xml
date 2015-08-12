@@ -17,5 +17,6 @@
     <string name="drawer.shows">Séries</string>
     <string name="episodes">épisodes</string>
     <string name="unseen_episodes">épisodes non vus</string>
+    <string name="seasons">saisons</string>
 
 </resources>

@@ -59,30 +59,49 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="60dip"
-            android:layout_marginLeft="150dip"
+            android:layout_marginBottom="50dip"
+            android:layout_marginLeft="140dip"
             android:tag="
                     font(Roboto-Regular.ttf);
                     setText($show.title);
                 "
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="25sp"
             tools:text="Arrow" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="22dip"
+            android:orientation="horizontal"
+            android:paddingRight="15dp"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="40dip"
-            android:layout_marginLeft="150dip"
-            android:tag="
-                    font(Roboto-Regular.ttf);
-                    setText(Fantastique);
+            android:layout_marginBottom="30dip"
+            android:layout_marginLeft="140dip"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="
+                font(Roboto-Regular.ttf);
+                setText($show.getUnseenCount());"
+                android:textColor="@color/white75"
+                android:textSize="13sp"
+                />
+
+            <TextView
+                android:layout_marginLeft="3sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unseen_episodes"
+                android:tag="
+                font(Roboto-Regular.ttf);
                 "
-            android:textColor="@color/white75"
-            android:textSize="13sp"
-            tools:text="Fantastique" />
+                android:textColor="@color/white75"
+                android:textSize="13sp"
+                 />
+        </LinearLayout>
 
     </FrameLayout>
 
