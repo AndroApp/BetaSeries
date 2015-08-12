@@ -8,6 +8,8 @@ import com.betaseries.betaseries.webservice.BetaSeriesAPI;
 
 import javax.inject.Inject;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by florentchampigny on 02/08/15.
  */
@@ -15,6 +17,9 @@ public class AbstractFragment extends Fragment {
 
     @Inject
     protected BetaSeriesAPI betaSeriesAPI;
+
+    @Inject
+    protected EventBus eventBus;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
