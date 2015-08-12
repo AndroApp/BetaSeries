@@ -26,4 +26,5 @@ public class AbstractFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Application.app().component().inject(this);
     }
+
 }

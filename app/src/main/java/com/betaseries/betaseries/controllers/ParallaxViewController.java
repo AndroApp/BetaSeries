@@ -5,8 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.github.florent37.carpaccio.controllers.ControllerHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +44,8 @@ public class ParallaxViewController extends RecyclerView.OnScrollListener {
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         if (recyclerView.getChildCount() > 0) {
             if (firstVisibleView == null) firstVisibleView = recyclerView.getChildAt(0);
-            if (recyclerviewCenterY == -1) recyclerviewCenterY = recyclerView.getMeasuredHeight() / 2 + recyclerView.getTop();
+            if (recyclerviewCenterY == -1)
+                recyclerviewCenterY = recyclerView.getMeasuredHeight() / 2 + recyclerView.getTop();
 
             for (int i = 0, count = imageViewList.size(); i < count; ++i) {
                 currentImageView = imageViewList.get(i);
