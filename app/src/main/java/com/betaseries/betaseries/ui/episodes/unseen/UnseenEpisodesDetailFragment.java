@@ -17,6 +17,8 @@ import com.betaseries.betaseries.model.Show;
 import com.betaseries.betaseries.ui.AbstractFragment;
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
+import com.github.florent37.carpaccio.controllers.adapter.Holder;
+import com.github.florent37.carpaccio.controllers.adapter.OnItemSwipedListener;
 import com.github.florent37.carpaccio.controllers.adapter.RecyclerViewCallbackAdapter;
 import com.squareup.picasso.Picasso;
 
@@ -70,7 +72,6 @@ public class UnseenEpisodesDetailFragment extends AbstractFragment {
 
         CarpaccioRecyclerViewAdapter adapter = carpaccio.getAdapter("episode");
         adapter.setRecyclerViewCallback(new RecyclerViewCallbackAdapter() {
-
             @Override
             public void onBind(Object object, View view, int position) {
                 super.onBind(object, view, position);
@@ -83,34 +84,17 @@ public class UnseenEpisodesDetailFragment extends AbstractFragment {
                     }
                 }
             }
-
         });
-
-        // init swipe to dismiss logic
-        ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-
+        adapter.setOnItemSwipedListener(new OnItemSwipedListener<Episode>() {
             @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                // callback for drag-n-drop, false to skip this feature
-                return false;
-            }
-
-            @Override
-            public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-                if (viewHolder.getAdapterPosition() == 0) return 0;
-                return super.getSwipeDirs(recyclerView, viewHolder);
-            }
-
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                // callback for swipe to dismiss, removing item from data and adapter
-                Episode episode = (Episode) carpaccio.getMappedList("episode").get(viewHolder.getAdapterPosition() - adapter.getHeaderCount());
-                episode.setSeen(true);
-                adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+            public boolean OnItemSwipedListener(Episode episode, int i, Holder holder, RecyclerView.Adapter adapter) {
+                if(!episode.isSeen()) {
+                    episode.setSeen(true);
+                    return false;
+                }else
+                    return true;
             }
         });
-        swipeToDismissTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     public static Fragment newInstance(Show show) {
