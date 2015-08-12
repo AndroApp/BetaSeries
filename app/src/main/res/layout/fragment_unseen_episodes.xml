@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:background="#333"
     app:register="
-        com.github.florent37.carpaccio.controllers.RecyclerViewController;
-        com.betaseries.betaseries.controllers.EventImageViewController;
-        com.github.florent37.carpaccio.controllers.TextViewController;
-        com.betaseries.betaseries.controllers.UnseedDetailParallax;
-        com.betaseries.betaseries.controllers.RatingViewController;
+        RecyclerViewController;
+        TextViewController;
+        CommonViewController;
+        controllers.EventImageViewController;
+        controllers.UnseenDetailParallax;
     ">
 
     <android.support.v7.widget.RecyclerView
@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:tag="
             registerParallax();
-            addHeader(show,header_unseen_episodes_detail);
+            addHeader(show,header_unseen_episodes);
             adapter(episode,cell_unseen_detail_episode);
             " />
 

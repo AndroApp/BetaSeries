@@ -41,7 +41,7 @@
         android:layout_height="200dp">
 
         <ImageView
-            android:id="@+id/image_serie"
+            android:id="@+id/header_image_serie"
             android:layout_width="100dip"
             android:layout_height="150dip"
             android:layout_marginLeft="20dp"

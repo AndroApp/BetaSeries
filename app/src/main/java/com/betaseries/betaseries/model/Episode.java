@@ -42,6 +42,10 @@ public class Episode implements Serializable{
         return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=300&height=150";
     }
 
+    public String getUrlBackground(){
+        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=900&height=500";
+    }
+
     public String getSeasonEpisode(){
         return "S"+season+" E"+episode;
     }

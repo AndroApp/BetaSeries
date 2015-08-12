@@ -5,10 +5,10 @@
     android:layout_height="140dip"
     app:onlyForPreview="true"
     app:register="
-        com.github.florent37.carpaccio.controllers.CommonViewController;
-        com.github.florent37.carpaccio.controllers.ImageViewController;
-        com.github.florent37.carpaccio.controllers.TextViewController;
-        com.betaseries.betaseries.controllers.RatingViewController;
+        CommonViewController;
+        ImageViewController;
+        TextViewController;
+        controllers.RatingViewController;
     "
     tools:background="#333">
 

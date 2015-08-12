@@ -7,7 +7,7 @@ import com.github.florent37.carpaccio.controllers.*;
 /**
  * Created by florentchampigny on 12/08/15.
  */
-public class UnseedDetailParallax extends com.github.florent37.carpaccio.controllers.ParallaxViewController{
+public class UnseenDetailParallax extends com.github.florent37.carpaccio.controllers.ParallaxViewController{
 
     View headerView;
 

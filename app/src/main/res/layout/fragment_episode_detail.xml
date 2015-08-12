@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.florent37.carpaccio.Carpaccio xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/carpaccio"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222"
+    app:register="
+        ParallaxViewController;
+        controllers.EventImageViewController;
+        TextViewController;
+        CommonViewController;
+    ">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:tag="
+            registerParallax();
+            ">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:clipToPadding="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:tag="
+                        url($episode.getUrlBackground());
+                        parallaxY(0.5);
+                    "
+                    tools:src="@drawable/arrow" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:tag="
+                        parallaxY(0.3);
+                    "
+                    android:src="@drawable/play" />
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/gradient_black_85" />
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/image_serie_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="180dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="10dp">
+
+                <ImageView
+                    android:id="@+id/image_serie"
+                    android:layout_width="100dip"
+                    android:layout_height="150dip"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:tag="
+                        url($show.urlShow);
+                    "
+                    android:transitionName="image"
+                    tools:src="@drawable/arrow" />
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/showName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="160dip"
+                android:layout_toRightOf="@+id/image_serie_card"
+                android:tag="
+                    font(Roboto-Thin.ttf);
+                    setText($show.title);
+                "
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:text="Arrow" />
+
+            <TextView
+                android:id="@+id/episodeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/showName"
+                android:layout_below="@+id/banner"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="10dp"
+                android:tag="
+                    font(Roboto-Medium.ttf);
+                    setText($episode.title);
+                "
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:text="Pilot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/episodeName"
+                android:layout_below="@+id/episodeName"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="10dp"
+                android:tag="
+                    font(Roboto-Thin.ttf);
+                    setText($episode.dateFrSmall);
+                "
+                android:textColor="@color/white80"
+                android:textSize="12sp"
+                tools:text="15 janvier 1995" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image_serie_card"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:tag="
+                    setText($episode.description);
+                    lorem();
+                "
+                    android:textColor="@color/white20"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:tag="
+                    setText($episode.description);
+                    lorem();
+                "
+                    android:textColor="@color/white20"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:tag="
+                    setText($episode.description);
+                    lorem();
+                "
+                    android:textColor="@color/white20"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:tag="
+                    setText($episode.description);
+                    lorem();
+                "
+                    android:textColor="@color/white20"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:tag="
+                    setText($episode.description);
+                    lorem();
+                "
+                    android:textColor="@color/white20"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:tag="
+                    setText($episode.description);
+                    lorem();
+                "
+                    android:textColor="@color/white20"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:tag="
+                    setText($episode.description);
+                    lorem();
+                "
+                    android:textColor="@color/white20"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</com.github.florent37.carpaccio.Carpaccio>
+
