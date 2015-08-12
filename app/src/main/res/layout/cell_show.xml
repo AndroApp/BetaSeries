@@ -48,19 +48,37 @@
         android:background="@drawable/gradient_black_85" />
 
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="22dip"
-        android:layout_gravity="bottom"
         android:background="@color/white"
-        android:gravity="center_vertical"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
         android:paddingLeft="120dp"
         android:paddingRight="15dp"
-        android:tag="
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="
                 font(Roboto-Regular.ttf);
-                setText($show.episodeNonVues());"
-        android:textColor="@color/black50"
-        android:textSize="10sp" />
+                setText($show.getUnseenCount());"
+            android:textColor="@color/black50"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_marginLeft="3sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unseen_episodes"
+            android:tag="
+                font(Roboto-Regular.ttf);
+                "
+            android:textColor="@color/black50"
+            android:textSize="10sp" />
+    </LinearLayout>
 
 
     <TextView
@@ -68,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="50dip"
+        android:layout_marginBottom="32dip"
         android:layout_marginLeft="120dip"
         android:tag="
                 font(Roboto-Regular.ttf);
@@ -76,21 +94,6 @@
             "
         android:textColor="@color/white"
         android:textSize="22sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="35dip"
-        android:visibility="gone"
-        android:layout_marginLeft="120dip"
-        android:tag="
-                font(Roboto-Regular.ttf);
-                setText($show.episodeNonVues());
-            "
-        android:textColor="@color/white75"
-        android:textSize="13sp" />
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -101,8 +104,7 @@
         android:layout_marginLeft="@dimen/cardMarginHorizontal"
         android:layout_marginRight="@dimen/cardMarginHorizontal"
         android:layout_marginTop="@dimen/cardMarginVertical"
-        app:cardElevation="8dp"
-        >
+        app:cardElevation="8dp">
 
         <ImageView
             android:id="@+id/image_serie"

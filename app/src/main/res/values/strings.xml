@@ -15,5 +15,7 @@
     <string name="nb_episode_show_unseen">%1$s épisodes non vus</string>
     <string name="drawer.unseen_episodes">Episodes à voir</string>
     <string name="drawer.shows">Séries</string>
+    <string name="episodes">épisodes</string>
+    <string name="unseen_episodes">épisodes non vus</string>
 
 </resources>
