@@ -45,4 +45,8 @@ public class AbstractDrawerActivity extends AbstractActivity {
         return (drawerToggle != null && drawerToggle.onOptionsItemSelected(item))
                 || super.onOptionsItemSelected(item);
     }
+
+    public void closeDrawer(){
+        drawerLayout.closeDrawers();
+    }
 }

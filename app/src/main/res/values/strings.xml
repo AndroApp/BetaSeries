@@ -12,5 +12,7 @@
     <string name="nb_season_episodes">%1$s saisons, %2$s épisodes</string>
     <string name="regardes_par">Regadrée par %1$s membres</string>
     <string name="noter_episode">Notez votre épisode !</string>
+    <string name="drawer.unseen_episodes">Episodes à voir</string>
+    <string name="drawer.shows">Séries</string>
 
 </resources>

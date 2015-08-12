@@ -9,6 +9,7 @@ import com.betaseries.betaseries.ui.episodes.unseen.UnseenShowsFragment;
 import com.betaseries.betaseries.ui.show.annuaire.AnnuaireFragment;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -33,13 +34,16 @@ public class MainActivity extends AbstractDrawerActivity {
                 });
     }
 
-
+    @OnClick(R.id.drawer_unseen_episodes)
     protected void displayUnseenEpisodes() {
         setContentFragment(UnseenShowsFragment.newInstance());
+        closeDrawer();
     }
 
+    @OnClick(R.id.drawer_shows)
     protected void displayAnnuaire() {
         setContentFragment(AnnuaireFragment.newInstance());
+        closeDrawer();
     }
 
 }
