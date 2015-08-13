@@ -68,6 +68,7 @@
         <item name="android:layout_marginLeft">@dimen/drawer_item_margin_size</item>
         <item name="android:textColor">@color/item_inactif</item>
         <item name="android:textSize">@dimen/txt_size_normal</item>
+        <item name="android:tag">font(Roboto-Medium.ttf)</item>
     </style>
 
     <style name="ItemContainerDrawer">

@@ -22,7 +22,7 @@
     <string name="drawer.annuaire_des_series">Annuaire des séries</string>
     <string name="drawer.mon_profil">Mon profil</string>
     <string name="drawer.parametres">Paramètres</string>
-    <string name="drawer.a_propos_betaseries">A propos de betaseries</string>
+    <string name="drawer.a_propos">A propos</string>
     <string name="drawer.deconnexion">Déconnexion</string>
     <string name="unseen_episodes">Episodes non vus</string>
     <string name="seasons">saisons</string>

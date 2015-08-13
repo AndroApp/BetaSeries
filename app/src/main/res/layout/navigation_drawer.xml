@@ -78,9 +78,6 @@
 
                 <TextView
                     style="@style/ItemLabelDrawer"
-                    android:tag="
-                font(Roboto-Medium.ttf);
-            "
                     android:text="@string/unseen_episodes" />
             </RelativeLayout>
 
@@ -95,9 +92,6 @@
 
                 <TextView
                     style="@style/ItemLabelDrawer"
-                    android:tag="
-                font(Roboto-Medium.ttf);
-                "
                     android:text="@string/drawer.mes_series" />
             </RelativeLayout>
 
@@ -111,9 +105,6 @@
 
                 <TextView
                     style="@style/ItemLabelDrawer"
-                    android:tag="
-                font(Roboto-Medium.ttf);
-                "
                     android:text="@string/drawer.planning" />
             </RelativeLayout>
 
@@ -127,9 +118,6 @@
 
                 <TextView
                     style="@style/ItemLabelDrawer"
-                    android:tag="
-                font(Roboto-Medium.ttf);
-                "
                     android:text="@string/drawer.annuaire_des_series" />
             </RelativeLayout>
 
@@ -149,15 +137,12 @@
                 <TextView
                     style="@style/ItemLabelDrawer"
                     android:layout_marginLeft="0dip"
-                    android:tag="
-                font(Roboto-Medium.ttf);
-                "
                     android:text="@string/drawer.parametres" />
             </RelativeLayout>
 
 
             <RelativeLayout
-                android:id="@+id/drawer_a_propos_betaserie"
+                android:id="@+id/drawer_a_propos"
                 style="@style/ItemContainerDrawer">
 
                 <ImageView style="@style/ItemImageDrawer" />
@@ -165,10 +150,7 @@
                 <TextView
                     style="@style/ItemLabelDrawer"
                     android:layout_marginLeft="0dip"
-                    android:tag="
-                font(Roboto-Medium.ttf);
-                "
-                    android:text="@string/drawer.a_propos_betaseries" />
+                    android:text="@string/drawer.a_propos" />
             </RelativeLayout>
 
 
@@ -181,9 +163,6 @@
                 <TextView
                     style="@style/ItemLabelDrawer"
                     android:layout_marginLeft="0dip"
-                    android:tag="
-                font(Roboto-Medium.ttf);
-                "
                     android:text="@string/drawer.deconnexion"
 
                     />
