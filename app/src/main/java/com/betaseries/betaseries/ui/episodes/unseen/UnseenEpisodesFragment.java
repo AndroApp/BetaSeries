@@ -5,13 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RatingBar;
-import android.widget.Toast;
 
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.controllers.EventImageViewController;
@@ -28,7 +25,6 @@ import com.github.florent37.carpaccio.controllers.adapter.RecyclerViewCallbackAd
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by florentchampigny on 11/08/15.
@@ -102,10 +98,10 @@ public class UnseenEpisodesFragment extends AbstractFragment {
                     return false;
                 } else {
                     betaSeriesAPI.episodeMarquerVu(episode.getId()).subscribe(vu ->
-                            betaSeriesAPI.episodeNoter(episode.getId(),episode.getNoteUser())
-                                    .subscribe(o2 ->
-                                            EpisodeViewHolder.class.cast(holder).reinitStars()
-                                    )
+                                    betaSeriesAPI.episodeNoter(episode.getId(), episode.getNoteUser())
+                                            .subscribe(o2 ->
+                                                            EpisodeViewHolder.class.cast(holder).reinitStars()
+                                            )
                     );
                     return true;
                 }
@@ -119,9 +115,8 @@ public class UnseenEpisodesFragment extends AbstractFragment {
 
             @Override
             public void onItemClick(Episode episode, int i, Holder holder) {
-                if(!episode.isSwiped()) {
-                    Intent intent = EpisodeDetailActivity.newInstance(getActivity(), show, episode);
-                    ActivityCompat.startActivity(getActivity(), intent, null);
+                if (!episode.isSwiped()) {
+                    ActivityCompat.startActivity(getActivity(),  EpisodeDetailActivity.newInstance(getActivity(), show, episode) , null);
                 }
             }
 
@@ -140,8 +135,8 @@ public class UnseenEpisodesFragment extends AbstractFragment {
         eventBus.unregister(this);
     }
 
-    public void onEvent(EventImageViewController.EventImage eventImage){
-        if(eventImage.url.equals(show.getUrlShow()))
+    public void onEvent(EventImageViewController.EventImage eventImage) {
+        if (eventImage.url.equals(show.getUrlShow()))
             getActivity().supportStartPostponedEnterTransition();
     }
 }

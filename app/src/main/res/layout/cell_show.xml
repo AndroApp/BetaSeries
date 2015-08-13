@@ -105,7 +105,8 @@
         android:layout_marginRight="@dimen/cardMarginHorizontal"
         android:layout_marginTop="@dimen/cardMarginVertical"
         app:cardCornerRadius="0dp"
-        app:cardElevation="10dp">
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="#333">
 
         <ImageView
             android:id="@+id/image_serie"
