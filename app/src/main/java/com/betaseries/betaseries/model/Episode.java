@@ -28,14 +28,23 @@ public class Episode implements Serializable{
     private String comments;
     private ArrayList<Object> subtitles = new ArrayList<Object>();
 
-    private boolean seen = false;
+    private boolean swiped = false;
+    private boolean voted = false;
 
-    public boolean isSeen() {
-        return seen;
+    public boolean isSwiped() {
+        return swiped;
     }
 
-    public void setSeen(boolean seen) {
-        this.seen = seen;
+    public void setSwiped(boolean swiped) {
+        this.swiped = swiped;
+    }
+
+    public boolean isVoted() {
+        return voted;
+    }
+
+    public void setVoted(boolean voted) {
+        this.voted = voted;
     }
 
     public String getUrlBanner(){

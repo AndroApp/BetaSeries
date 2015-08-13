@@ -78,7 +78,7 @@ public class UnseenEpisodesFragment extends AbstractFragment {
                     super.onBind(object, view, position);
                     if (object instanceof Episode) {
                         Episode episode = (Episode) object;
-                        if (episode.isSeen()) {
+                        if (episode.isSwiped()) {
                             view.findViewById(R.id.card).setVisibility(View.GONE);
                         } else {
                             view.findViewById(R.id.card).setVisibility(View.VISIBLE);
@@ -88,9 +88,14 @@ public class UnseenEpisodesFragment extends AbstractFragment {
             });
             adapter.setOnItemSwipedListener(new OnItemSwipedListener<Episode>() {
                 @Override
-                public boolean OnItemSwipedListener(Episode episode, int i, Holder holder, RecyclerView.Adapter adapter) {
-                    if (!episode.isSeen()) {
-                        episode.setSeen(true);
+                public boolean canSwipe(int i, Episode episode) {
+                    return !episode.isSwiped() || !episode.isVoted();
+                }
+
+                @Override
+                public boolean onItemSwiped(Episode episode, int i, Holder holder, RecyclerView.Adapter adapter) {
+                    if (!episode.isSwiped()) {
+                        episode.setSwiped(true);
                         return false;
                     } else
                         return true;

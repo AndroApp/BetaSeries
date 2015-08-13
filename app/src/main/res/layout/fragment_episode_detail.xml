@@ -166,11 +166,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/activity_vertical_margin"
+                    tools:text="@string/lorem"
                     android:lineSpacingExtra="8dip"
                     android:tag="
                         font(Roboto-Light.ttf);
                         setText($episode.description);
-                        lorem();
                     "
                     android:textColor="#333"
                     android:textSize="14sp" />

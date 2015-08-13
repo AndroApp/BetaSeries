@@ -20,7 +20,7 @@
         android:tag="
             registerParallax();
             addHeader(show,header_unseen_episodes);
-            adapter(episode,cell_unseen_detail_episode);
+            adapter(episode,cell_unseen_episode);
             " />
 
 
