@@ -21,6 +21,11 @@ public class Note implements Serializable{
     public String getMean() {
         return mean;
     }
+    public String getMeanFormatted() {
+        return mean != null ?
+                mean.replace(".",",") :
+                "5";
+    }
 
     public void setMean(String mean) {
         this.mean = mean;

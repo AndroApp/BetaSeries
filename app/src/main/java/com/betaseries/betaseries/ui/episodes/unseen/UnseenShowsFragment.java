@@ -66,11 +66,11 @@ public class UnseenShowsFragment extends AbstractFragment {
         carpaccio.onItemClick("show", new OnItemClickListenerAdapter() {
             @Override
             public void onItemClick(Object item, int position, Holder holder) {
-                Intent intent = UnseenEpisodesActivity.newInstance(getActivity(),(Show)item);
-                Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
-                        Pair.create(holder.itemView.findViewById(R.id.image_serie), "image")
-                ).toBundle();
-                ActivityCompat.startActivity(getActivity(), intent, bundle);
+                ActivityCompat.startActivity(getActivity(),
+                        UnseenEpisodesActivity.newInstance(getActivity(),(Show)item),
+                        ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
+                                Pair.create(holder.itemView.findViewById(R.id.image_serie), "image")
+                        ).toBundle());
             }
         });
     }

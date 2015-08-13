@@ -26,6 +26,7 @@
     <string name="drawer.deconnexion">Déconnexion</string>
     <string name="unseen_episodes">Episodes non vus</string>
     <string name="seasons">saisons</string>
+    <string name="votes">votes</string>
 
 
 </resources>

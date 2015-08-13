@@ -27,7 +27,7 @@
 
 
             <FrameLayout
-                android:id="@+id/banner"
+                android:id="@+id/bannerVideo"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:clipToPadding="true">
@@ -43,14 +43,15 @@
                     tools:src="@drawable/arrow" />
 
                 <ImageView
+                    android:id="@+id/play"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
+                    android:src="@drawable/play"
                     android:tag="
                         parallaxY(0.3);
-                    "
-                    android:src="@drawable/play" />
+                    " />
             </FrameLayout>
 
             <View
@@ -105,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/showName"
-                android:layout_below="@+id/banner"
+                android:layout_below="@+id/bannerVideo"
                 android:layout_marginRight="20dip"
                 android:layout_marginTop="10dp"
                 android:tag="
@@ -137,9 +138,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/episodeName"
                 android:layout_toRightOf="@+id/code"
+                android:text=" - "
                 android:textColor="#616161"
-                android:textSize="12sp"
-                android:text=" - " />
+                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,21 +160,117 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/image_serie_card"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <RatingBar
+                    android:id="@+id/ratingUserStar"
+                    style="@style/RatingStar_Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:numStars="5"
+                    android:progressBackgroundTint="#AAA"
+                    android:progressTint="#333"
+
+                    tools:rating="2.0"
+                    android:secondaryProgressTint="#333"
+                    android:stepSize="1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:tag="
+                                font(Roboto-Black.ttf);
+                                setText($episode.note.meanFormatted);
+                            "
+                            android:text="4,2"
+                            android:textColor="@color/black60"
+                            android:textSize="30sp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5sp"
+                            android:gravity="center"
+                            android:tag="
+                                font(Roboto-Regular.ttf);
+                            "
+                            android:text=" / 5"
+                            android:textColor="@color/black40"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:tag="
+                            setText($episode.note.total);
+                            font(Roboto-Black.ttf);
+                        "
+                            android:text="2758"
+                            android:textColor="@color/black60"
+                            android:textSize="30sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5sp"
+                            android:gravity="center"
+                            android:tag="
+                                font(Roboto-Regular.ttf);
+                            "
+                            android:text="@string/votes"
+                            android:textColor="@color/black40"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#AAA" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_vertical_margin"
-                    tools:text="@string/lorem"
+                    android:layout_marginTop="20dp"
                     android:lineSpacingExtra="8dip"
                     android:tag="
                         font(Roboto-Light.ttf);
                         setText($episode.description);
                     "
                     android:textColor="#333"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:text="@string/lorem" />
 
             </LinearLayout>
 

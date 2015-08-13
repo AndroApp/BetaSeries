@@ -15,6 +15,7 @@ import com.github.florent37.carpaccio.Carpaccio;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by florentchampigny on 11/08/15.
@@ -39,6 +40,9 @@ public class EpisodeDetailFragment extends AbstractFragment {
     Show show;
     Episode episode;
 
+    @Bind(R.id.play)
+    View play;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +61,18 @@ public class EpisodeDetailFragment extends AbstractFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
+        if(episode.getYoutubeId() == null)
+            play.setVisibility(View.GONE);
+
         carpaccio.mapObject("show", show);
         carpaccio.mapObject("episode", episode);
+    }
+
+    @OnClick(R.id.bannerVideo)
+    public void clickedOnVideo(){
+        if(episode.getYoutubeId() != null){
+
+        }
     }
 
     @Override
