@@ -78,7 +78,7 @@ public class AbstractDrawerActivity extends AbstractActivity {
     }
 
     public void closeDrawer() {
-        drawerLayout.closeDrawers();
+        drawerLayout.postDelayed(() -> drawerLayout.closeDrawers(), 500);
     }
 
     public void drawerOpened() {

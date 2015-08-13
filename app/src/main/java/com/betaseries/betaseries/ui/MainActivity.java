@@ -8,7 +8,9 @@ import com.betaseries.betaseries.BuildConfig;
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.model.Member;
 import com.betaseries.betaseries.ui.episodes.unseen.UnseenShowsFragment;
+import com.betaseries.betaseries.ui.planning.PlanningFragment;
 import com.betaseries.betaseries.ui.show.annuaire.AnnuaireFragment;
+import com.betaseries.betaseries.ui.show.my.MyShowsFragment;
 import com.github.florent37.carpaccio.Carpaccio;
 
 import butterknife.Bind;
@@ -53,10 +55,21 @@ public class MainActivity extends AbstractDrawerActivity {
         closeDrawer();
     }
 
+    @OnClick(R.id.drawer_my_shows)
+    protected void displayMyShows() {
+        setContentFragment(MyShowsFragment.newInstance());
+        closeDrawer();
+    }
 
     @OnClick(R.id.drawer_shows)
-    protected void displayAnnuaire() {
+    protected void displayAllShows() {
         setContentFragment(AnnuaireFragment.newInstance());
+        closeDrawer();
+    }
+
+    @OnClick(R.id.drawer_planning)
+    protected void displayPlanning() {
+        setContentFragment(PlanningFragment.newInstance());
         closeDrawer();
     }
 

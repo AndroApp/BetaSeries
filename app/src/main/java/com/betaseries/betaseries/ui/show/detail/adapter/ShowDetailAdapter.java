@@ -1,4 +1,4 @@
-package com.betaseries.betaseries.ui.show.adapter;
+package com.betaseries.betaseries.ui.show.detail.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.model.Show;
-import com.betaseries.betaseries.ui.show.view.ShowDetailViewHolder;
+import com.betaseries.betaseries.ui.show.detail.view.ShowDetailViewHolder;
 
 
 /**

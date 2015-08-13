@@ -1,4 +1,4 @@
-package com.betaseries.betaseries.ui.show.view;
+package com.betaseries.betaseries.ui.show.detail.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

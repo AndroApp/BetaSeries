@@ -1,4 +1,4 @@
-package com.betaseries.betaseries.ui.show;
+package com.betaseries.betaseries.ui.show.detail;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,10 +9,10 @@ import android.widget.TextView;
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.model.Show;
 import com.betaseries.betaseries.ui.AbstractActivity;
-import com.betaseries.betaseries.ui.show.fragment.ShowCastingFragment;
-import com.betaseries.betaseries.ui.show.fragment.ShowDetailFragment;
-import com.betaseries.betaseries.ui.show.fragment.ShowEpisodesFragment;
-import com.betaseries.betaseries.ui.show.fragment.ShowSimilarFragment;
+import com.betaseries.betaseries.ui.show.detail.fragment.ShowCastingFragment;
+import com.betaseries.betaseries.ui.show.detail.fragment.ShowDetailFragment;
+import com.betaseries.betaseries.ui.show.detail.fragment.ShowEpisodesFragment;
+import com.betaseries.betaseries.ui.show.detail.fragment.ShowSimilarFragment;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 
 import butterknife.Bind;

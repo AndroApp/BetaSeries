@@ -1,4 +1,4 @@
-package com.betaseries.betaseries.ui.show.fragment;
+package com.betaseries.betaseries.ui.show.detail.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.ui.AbstractFragment;
-import com.betaseries.betaseries.ui.show.adapter.ShowDetailAdapter;
+import com.betaseries.betaseries.ui.show.detail.adapter.ShowDetailAdapter;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 

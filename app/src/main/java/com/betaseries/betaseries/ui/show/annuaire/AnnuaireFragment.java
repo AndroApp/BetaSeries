@@ -10,12 +10,11 @@ import android.view.ViewGroup;
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.model.Show;
 import com.betaseries.betaseries.ui.AbstractFragment;
-import com.betaseries.betaseries.ui.show.ShowDetailActivity;
+import com.betaseries.betaseries.ui.show.detail.ShowDetailActivity;
 import com.betaseries.betaseries.webservice.Constants;
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioLogger;
 import com.github.florent37.carpaccio.controllers.adapter.Holder;
-import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListenerAdapter;
 
 import butterknife.Bind;

@@ -1,11 +1,8 @@
-package com.betaseries.betaseries.ui.show.fragment;
+package com.betaseries.betaseries.ui.show.detail.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,37 +10,26 @@ import android.view.ViewGroup;
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.ui.AbstractFragment;
 import com.github.florent37.carpaccio.Carpaccio;
-import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
-import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
-
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 
 /**
  * Created by florentchampigny on 08/05/15.
  */
-public class ShowSimilarFragment extends AbstractFragment {
+public class ShowCastingFragment extends AbstractFragment {
     private static final String SHOW_ID = "SHOW_ID";
 
     public static Fragment newInstance(String showId) {
-        Fragment fragment = new ShowSimilarFragment();
+        Fragment fragment = new ShowCastingFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(SHOW_ID,showId);
+        bundle.putString(SHOW_ID, showId);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    String showId;
-
-    @Bind(R.id.carpaccio)
-    Carpaccio carpaccio;
+    protected String showId;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,10 +37,13 @@ public class ShowSimilarFragment extends AbstractFragment {
         showId = getArguments().getString(SHOW_ID);
     }
 
+    @Bind(R.id.carpaccio)
+    Carpaccio carpaccio;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_show_similars, container, false);
+        return inflater.inflate(R.layout.fragment_show_characters, container, false);
     }
 
     @Override
@@ -62,10 +51,10 @@ public class ShowSimilarFragment extends AbstractFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        betaSeriesAPI.serieSimilaires(showId)
+        betaSeriesAPI.serieListePersonnages(showId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(betaSerieResponse -> {
-                    carpaccio.mapList("show",betaSerieResponse.getSimilars());
+                    carpaccio.mapList("character",betaSerieResponse.getCharacters());
                 });
     }
 }

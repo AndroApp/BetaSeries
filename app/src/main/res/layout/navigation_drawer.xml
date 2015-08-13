@@ -83,7 +83,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/drawer_shows"
+                android:id="@+id/drawer_my_shows"
                 style="@style/ItemContainerDrawer">
 
                 <ImageView
@@ -109,7 +109,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/drawer_annuaire_serie"
+                android:id="@+id/drawer_shows"
                 style="@style/ItemContainerDrawer">
 
                 <ImageView
