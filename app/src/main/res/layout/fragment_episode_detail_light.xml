@@ -5,7 +5,7 @@
     android:id="@+id/carpaccio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DEDEDE"
+    android:background="#F3F3F3"
     app:register="
         ParallaxViewController;
         controllers.EventImageViewController;
@@ -67,7 +67,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="180dp"
                 app:cardCornerRadius="0dp"
-                app:cardElevation="10dp">
+                app:cardElevation="2dp">
 
                 <ImageView
                     android:id="@+id/image_serie"
@@ -109,10 +109,10 @@
                 android:layout_marginRight="20dip"
                 android:layout_marginTop="10dp"
                 android:tag="
-                    font(Roboto-Medium.ttf);
+                    font(Roboto-Light.ttf);
                     setText($episode.title);
                 "
-                android:textColor="@color/black"
+                android:textColor="#212121"
                 android:textSize="25sp"
                 tools:text="Pilot" />
 
@@ -122,28 +122,35 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/episodeName"
                 android:layout_below="@+id/episodeName"
-                android:layout_marginRight="20dip"
-                android:layout_marginTop="5dp"
                 android:tag="
-                    font(Roboto-Light.ttf);
+                    font(Roboto-Regular.ttf);
                     setText($episode.code);
                 "
-                android:textColor="@color/black80"
-                android:textSize="18sp"
+                android:textColor="#616161"
+                android:textSize="12sp"
                 tools:text="S01E01" />
+
+
+            <TextView
+                android:id="@+id/tiret"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/episodeName"
+                android:layout_toRightOf="@+id/code"
+                android:textColor="#616161"
+                android:textSize="12sp"
+                android:text=" - " />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/episodeName"
-                android:layout_below="@+id/code"
-                android:layout_marginRight="20dip"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/episodeName"
+                android:layout_toRightOf="@+id/tiret"
                 android:tag="
-                    font(Roboto-Thin.ttf);
+                    font(Roboto-Regular.ttf);
                     setText($episode.dateFrSmall);
                 "
-                android:textColor="@color/black80"
+                android:textColor="#616161"
                 android:textSize="12sp"
                 tools:text="15 janvier 1995" />
 
@@ -158,13 +165,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
+                    android:padding="@dimen/activity_vertical_margin_large"
+                    android:lineSpacingExtra="8dip"
                     android:tag="
+                    font(Roboto-Light.ttf);
                     setText($episode.description);
                     lorem();
                 "
-                    android:textColor="@color/black60"
-                    android:textSize="16sp" />
+                    android:textColor="#333"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
