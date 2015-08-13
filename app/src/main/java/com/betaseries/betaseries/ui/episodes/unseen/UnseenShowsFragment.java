@@ -1,6 +1,5 @@
 package com.betaseries.betaseries.ui.episodes.unseen;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -12,15 +11,12 @@ import android.view.ViewGroup;
 
 import com.betaseries.betaseries.Application;
 import com.betaseries.betaseries.R;
-import com.betaseries.betaseries.back.episodes.unseen.UnseenManager;
 import com.betaseries.betaseries.model.Show;
 import com.betaseries.betaseries.ui.AbstractFragment;
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioLogger;
 import com.github.florent37.carpaccio.controllers.adapter.Holder;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListenerAdapter;
-
-import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,7 +37,7 @@ public class UnseenShowsFragment extends AbstractFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_unseen_show,container,false);
+        return inflater.inflate(R.layout.fragment_unseen_show, container, false);
     }
 
     @Override
@@ -64,7 +60,7 @@ public class UnseenShowsFragment extends AbstractFragment {
             @Override
             public void onItemClick(Object item, int position, Holder holder) {
                 ActivityCompat.startActivity(getActivity(),
-                        UnseenEpisodesActivity.newInstance(getActivity(),(Show)item),
+                        UnseenEpisodesActivity.newInstance(getActivity(), (Show) item),
                         ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
                                 Pair.create(holder.itemView.findViewById(R.id.image_serie), "image")
                         ).toBundle());
