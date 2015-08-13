@@ -129,6 +129,9 @@ public interface BetaSeriesAPI {
     @GET("/members/infos")
     Observable<BetaSerieResponse> getInfosUser(@Query("summary") String summary,@Query("only") String only);
 
+    @GET("/members/infos?summary=true")
+    Observable<BetaSerieResponse> getInfosUserSummary();
+
 
     @GET("/planning/general")
     Observable<BetaSerieResponse> planning_general();

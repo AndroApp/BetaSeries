@@ -1,19 +1,26 @@
 package com.betaseries.betaseries.ui;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.betaseries.betaseries.BuildConfig;
 import com.betaseries.betaseries.R;
+import com.betaseries.betaseries.model.Member;
 import com.betaseries.betaseries.ui.episodes.unseen.UnseenShowsFragment;
 import com.betaseries.betaseries.ui.show.annuaire.AnnuaireFragment;
+import com.github.florent37.carpaccio.Carpaccio;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AbstractDrawerActivity {
+
+    @Bind(R.id.drawer_carpaccio)
+    Carpaccio drawerCarpaccio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +30,22 @@ public class MainActivity extends AbstractDrawerActivity {
 
         authentificationManager.authentifier(BuildConfig.BETASERIES_USER, BuildConfig.BETASERIES_PASSWORD)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .onErrorReturn(throwable -> {
                     Toast.makeText(MainActivity.this, "Authentification error", Toast.LENGTH_SHORT).show();
                     return null;
                 })
                 .subscribe(authentification -> {
-                    displayUnseenEpisodes();
-                    //displayAnnuaire();
+                    if (!userManager.hasUser())
+                        betaSeriesAPI.getInfosUserSummary()
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(response -> {
+                                    userManager.setUser(response.getMember());
+                                    displayUnseenEpisodes();
+                                });
+                    else
+                        displayUnseenEpisodes();
                 });
     }
-
 
     @OnClick(R.id.drawer_unseen_episodes)
     protected void displayUnseenEpisodes() {
@@ -48,6 +60,10 @@ public class MainActivity extends AbstractDrawerActivity {
         closeDrawer();
     }
 
-
+    @Override
+    public void drawerOpened() {
+        super.drawerOpened();
+        drawerCarpaccio.mapObject("user", userManager.getUser());
+    }
 }
 

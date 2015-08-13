@@ -27,12 +27,34 @@ public class AbstractDrawerActivity extends AbstractActivity {
 
         if (drawerToggle == null && drawerLayout != null) {
             drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, 0, 0);
-            drawerLayout.setDrawerListener(drawerToggle);
+            drawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
+                @Override
+                public void onDrawerSlide(View drawerView, float slideOffset) {
+                    drawerToggle.onDrawerSlide(drawerView,slideOffset);
+                }
+
+                @Override
+                public void onDrawerOpened(View drawerView) {
+                    drawerToggle.onDrawerOpened(drawerView);
+                    drawerOpened();
+                }
+
+                @Override
+                public void onDrawerClosed(View drawerView) {
+                    drawerToggle.onDrawerClosed(drawerView);
+                }
+
+                @Override
+                public void onDrawerStateChanged(int newState) {
+                    drawerToggle.onDrawerStateChanged(newState);
+                }
+            });
             drawerLayout.setOnClickListener(v -> {});
         }
 
         if (drawerToggle != null)
             drawerToggle.syncState();
+
     }
 
     @Override
@@ -51,4 +73,6 @@ public class AbstractDrawerActivity extends AbstractActivity {
     public void closeDrawer(){
         drawerLayout.closeDrawers();
     }
+
+    public void drawerOpened(){}
 }

@@ -2,6 +2,7 @@ package com.betaseries.betaseries.dagger;
 
 import com.betaseries.betaseries.authentification.AuthentificationManager;
 import com.betaseries.betaseries.authentification.AuthentificationModule;
+import com.betaseries.betaseries.back.UserManager;
 import com.betaseries.betaseries.back.episodes.unseen.UnseenManager;
 import com.betaseries.betaseries.ui.AbstractActivity;
 import com.betaseries.betaseries.ui.AbstractFragment;
@@ -23,6 +24,7 @@ public interface BetaSeriesComponent {
     Gson gson();
     EventBus eventBus();
     UnseenManager unseenManager();
+    UserManager userManager();
 
     void inject(AbstractFragment abstractFragment);
     void inject(AbstractActivity abstractActivity);

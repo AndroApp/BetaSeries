@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.betaseries.betaseries.authentification.AuthentificationManager;
+import com.betaseries.betaseries.back.UserManager;
 import com.betaseries.betaseries.back.episodes.unseen.UnseenManager;
 import com.betaseries.betaseries.webservice.BetaSeriesAPI;
 import com.betaseries.betaseries.BuildConfig;
@@ -41,6 +42,12 @@ public class BetaSeriesModule {
     @Provides
     public UnseenManager provideUnseenManager(Gson gson, Context context) {
         return new UnseenManager(context,gson);
+    }
+
+    @Singleton
+    @Provides
+    public UserManager provideUserManager(Gson gson, Context context) {
+        return new UserManager(context,gson);
     }
 
     @Singleton

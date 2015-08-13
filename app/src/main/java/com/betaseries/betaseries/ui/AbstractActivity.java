@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import com.betaseries.betaseries.Application;
 import com.betaseries.betaseries.R;
 import com.betaseries.betaseries.authentification.AuthentificationManager;
+import com.betaseries.betaseries.back.UserManager;
 import com.betaseries.betaseries.webservice.BetaSeriesAPI;
 
 import javax.inject.Inject;
@@ -26,6 +27,9 @@ public class AbstractActivity extends AppCompatActivity {
 
     @Inject
     AuthentificationManager authentificationManager;
+
+    @Inject
+    UserManager userManager;
 
     @Nullable
     @Bind(R.id.toolbar)

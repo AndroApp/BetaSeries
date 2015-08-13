@@ -6,7 +6,7 @@
     android:clipToPadding="true"
     app:onlyForPreview="true"
     app:register="
-        com.betaseries.betaseries.controllers.ParallaxViewController;
+        controllers.ParallaxViewController;
         com.github.florent37.carpaccio.controllers.ImageViewController;
         com.github.florent37.carpaccio.controllers.TextViewController;
     ">
