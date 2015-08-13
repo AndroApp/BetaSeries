@@ -30,6 +30,7 @@ public class Episode implements Serializable{
 
     private boolean swiped = false;
     private boolean voted = false;
+    private int noteUser = 5;
 
     public boolean isSwiped() {
         return swiped;
@@ -45,6 +46,15 @@ public class Episode implements Serializable{
 
     public void setVoted(boolean voted) {
         this.voted = voted;
+    }
+
+    public void setNoteUser(float note) {
+        this.noteUser = (int)note;
+        this.voted = true;
+    }
+
+    public int getNoteUser() {
+        return this.noteUser;
     }
 
     public String getUrlBanner(){

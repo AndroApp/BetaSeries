@@ -14,6 +14,9 @@ import com.betaseries.betaseries.ui.show.ShowDetailActivity;
 import com.betaseries.betaseries.webservice.Constants;
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioLogger;
+import com.github.florent37.carpaccio.controllers.adapter.Holder;
+import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListener;
+import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListenerAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -50,10 +53,13 @@ public class AnnuaireFragment extends AbstractFragment {
                     carpaccio.mapList("show", betaSerieResponse.getShows());
                 });
 
-        carpaccio.onItemClick("show", (show, i, view1) -> {
-            Intent intent = new Intent(getActivity(), ShowDetailActivity.class);
-            intent.putExtra(ShowDetailActivity.SHOW, (Show)show);
-            startActivity(intent);
+        carpaccio.onItemClick("show", new OnItemClickListenerAdapter<Show>() {
+            @Override
+            public void onItemClick(Show show, int i, Holder holder) {
+                Intent intent = new Intent(getActivity(), ShowDetailActivity.class);
+                intent.putExtra(ShowDetailActivity.SHOW, show);
+                startActivity(intent);
+            }
         });
     }
 }

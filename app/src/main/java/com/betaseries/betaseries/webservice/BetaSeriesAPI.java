@@ -30,7 +30,7 @@ public interface BetaSeriesAPI {
     Observable<Object> episodeProchainDiffuse(@Query("id") String id);
 
     @POST("/episodes/note")
-    Observable<Object> episodeNoter(@Query("id") String id, @Query("note") int note); //1 à 5
+    Observable<Object> episodeNoter(@Query("id") Integer id, @Query("note") int note); //1 à 5
 
     @DELETE("/episodes/note")
     Observable<Object> episodeEnleverNote(@Query("id") String id); //1 à 5
@@ -39,7 +39,10 @@ public interface BetaSeriesAPI {
     Observable<Object> episodeRecherche(@Query("show_id") String idSerie, @Query("number") String numero); //numero : SxxExx
 
     @POST("/episodes/watched")
-    Observable<Object> episodeMarquerVu(@Query("id") String ids); //episodes separés par une virgule
+    Observable<Object> episodeMarquerVu(@Query("id") Integer id);
+
+    @POST("/episodes/watched")
+    Observable<Object> episodesMarquerVu(@Query("id") String ids); //episodes separés par une virgule
 
     @DELETE("/episodes/watched")
     Observable<Object> episodeEnleverVu(@Query("id") String ids);

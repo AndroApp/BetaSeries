@@ -17,6 +17,8 @@ import com.betaseries.betaseries.model.Show;
 import com.betaseries.betaseries.ui.AbstractFragment;
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioLogger;
+import com.github.florent37.carpaccio.controllers.adapter.Holder;
+import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListenerAdapter;
 
 import javax.inject.Inject;
 
@@ -61,13 +63,16 @@ public class UnseenShowsFragment extends AbstractFragment {
                     carpaccio.mapList("show", betaSerieResponse.getShows());
                 });
 
-        carpaccio.onItemClick("show", (show, i, cellView) -> {
-            Intent intent = new Intent(getActivity(), UnseenEpisodesActivity.class);
-            intent.putExtra(UnseenEpisodesActivity.SHOW, (Show)show);
-            Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
-                    Pair.create(cellView.findViewById(R.id.image_serie), "image")
-            ).toBundle();
-            ActivityCompat.startActivity(getActivity(),intent, bundle);
+        carpaccio.onItemClick("show", new OnItemClickListenerAdapter() {
+            @Override
+            public void onItemClick(Object item, int position, Holder holder) {
+                Intent intent = new Intent(getActivity(), UnseenEpisodesActivity.class);
+                intent.putExtra(UnseenEpisodesActivity.SHOW, (Show)item);
+                Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
+                        Pair.create(holder.itemView.findViewById(R.id.image_serie), "image")
+                ).toBundle();
+                ActivityCompat.startActivity(getActivity(), intent, bundle);
+            }
         });
     }
 }

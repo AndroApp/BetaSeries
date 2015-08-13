@@ -5,17 +5,17 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:register="
-        com.github.florent37.carpaccio.controllers.RecyclerViewController;
-        com.github.florent37.carpaccio.controllers.ImageViewController;
-        com.github.florent37.carpaccio.controllers.TextViewController;
-        com.betaseries.betaseries.controllers.ParallaxViewController;
+        RecyclerViewController;
+        ImageViewController;
+        TextViewController;
+        com.github.florent37.beautifulparallax.ParallaxViewController;
     ">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:tag="
-            registerParallax();
+            registerImageParallax();
             adapter(show,cell_show);
         "
         app:layout_behavior="@string/appbar_scrolling_view_behavior"

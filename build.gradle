@@ -21,7 +21,8 @@ buildscript {
 allprojects {
     repositories {
         maven { url 'https://maven.fabric.io/public' }
-        //maven { url  "http://dl.bintray.com/florent37/maven" }
+        maven { url  "http://dl.bintray.com/florent37/maven" }
+        maven { url "https://jitpack.io" }
         jcenter()
         mavenCentral()
     }
