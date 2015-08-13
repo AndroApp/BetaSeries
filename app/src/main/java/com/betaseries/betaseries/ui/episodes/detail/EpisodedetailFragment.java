@@ -1,5 +1,7 @@
 package com.betaseries.betaseries.ui.episodes.detail;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -71,30 +73,7 @@ public class EpisodeDetailFragment extends AbstractFragment {
     @OnClick(R.id.bannerVideo)
     public void clickedOnVideo() {
         if (episode.getYoutubeId() != null) {
-
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + episode.getYoutubeId())));
         }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        eventBus.register(this);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        eventBus.unregister(this);
-    }
-
-    int waitingImages = 2;
-    public void onEvent(EventImageViewController.EventImage eventImage) {
-        if (eventImage.url.equals(show.getUrlShow()))
-            waitingImages--;
-        else if (eventImage.url.equals(episode.getUrlBackground()))
-            waitingImages--;
-
-        if (waitingImages == 0)
-            getActivity().supportStartPostponedEnterTransition();
     }
 }

@@ -14,7 +14,7 @@ import java.util.Map;
 public class Episode implements Serializable{
     private Integer id;
     private Integer thetvdbId;
-    private Object youtubeId;
+    private Object youtube_id;
     private String title;
     private Integer season;
     private Integer episode;
@@ -100,11 +100,11 @@ public class Episode implements Serializable{
     }
 
     public Object getYoutubeId() {
-        return youtubeId;
+        return youtube_id;
     }
 
     public void setYoutubeId(Object youtubeId) {
-        this.youtubeId = youtubeId;
+        this.youtube_id = youtubeId;
     }
 
     public String getTitle() {
@@ -208,7 +208,7 @@ public class Episode implements Serializable{
         return "Episode{" +
                 "id=" + id +
                 ", thetvdbId=" + thetvdbId +
-                ", youtubeId=" + youtubeId +
+                ", youtubeId=" + youtube_id +
                 ", title='" + title + '\'' +
                 ", season=" + season +
                 ", episode=" + episode +
