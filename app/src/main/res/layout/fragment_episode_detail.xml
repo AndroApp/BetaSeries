@@ -164,94 +164,7 @@
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
-
-                <RatingBar
-                    android:id="@+id/ratingUserStar"
-                    style="@style/RatingStar_Black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-
-                    android:numStars="5"
-                    android:progressBackgroundTint="#AAA"
-                    android:progressTint="#333"
-
-                    tools:rating="2.0"
-                    android:secondaryProgressTint="#333"
-                    android:stepSize="1" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:tag="
-                                font(Roboto-Black.ttf);
-                                setText($episode.note.meanFormatted);
-                            "
-                            android:text="4,2"
-                            android:textColor="@color/black60"
-                            android:textSize="30sp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="5sp"
-                            android:gravity="center"
-                            android:tag="
-                                font(Roboto-Regular.ttf);
-                            "
-                            android:text=" / 5"
-                            android:textColor="@color/black40"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:tag="
-                            setText($episode.note.total);
-                            font(Roboto-Black.ttf);
-                        "
-                            android:text="2758"
-                            android:textColor="@color/black60"
-                            android:textSize="30sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="5sp"
-                            android:gravity="center"
-                            android:tag="
-                                font(Roboto-Regular.ttf);
-                            "
-                            android:text="@string/votes"
-                            android:textColor="@color/black40"
-                            android:textSize="20sp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
+                
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -262,15 +175,188 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_margin="@dimen/activity_vertical_margin"
                     android:lineSpacingExtra="8dip"
+                    tools:visibily="gone"
                     android:tag="
                         font(Roboto-Light.ttf);
                         setText($episode.description);
                     "
                     android:textColor="#333"
+                    android:textSize="14sp"/>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#AAA" />
+
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/house_of_cards"
+                    app:border_width="2dp"
+                    app:border_color="@color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/activity_vertical_margin_small"
+                    android:tag="
+                        font(RobotoCondensed-Bold.ttf);
+                    "
+                    android:textColor="@color/black"
                     android:textSize="14sp"
-                    tools:text="@string/lorem" />
+                    android:text="De Jesus Ferreira Kévin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="
+                        font(Roboto-Regular.ttf);
+                    "
+                    android:textColor="@color/black50"
+                    android:textSize="12sp"
+                    android:text="Noter ce film" />
+
+                <RatingBar
+                    android:id="@+id/ratingUserStar"
+                    style="@style/RatingStar_Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:numStars="5"
+                    android:progressBackgroundTint="#AAA"
+                    android:progressTint="#333"
+                    tools:rating="2.0"
+                    android:secondaryProgressTint="#333"
+                    android:stepSize="1" />
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:tag="
+                                font(Roboto-Light.ttf);
+                                setText($episode.note.meanFormatted);
+                            "
+                            android:text="4,2"
+                            android:textColor="@color/black"
+                            android:textSize="50sp"
+                            />
+
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="bottom"
+                            >
+
+                            <RatingBar
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:numStars="5"
+                                android:progressBackgroundTint="#AAA"
+                                android:progressTint="#333"
+                                android:rating="4.0"
+                                android:secondaryProgressTint="#333"
+                                android:layout_marginLeft="@dimen/activity_vertical_margin_small"
+
+                                android:stepSize="1" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:layout_marginLeft="@dimen/activity_vertical_margin_small"
+                                    android:gravity="center"
+                                    android:tag="
+                            setText($episode.note.total);
+                            font(Roboto-Regular.ttf);
+                        "
+                                    android:text="2758"
+                                    android:textColor="@color/black60"
+                                    android:textSize="12sp" />
+
+                                <TextView
+
+                                    android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5sp"
+                                    android:gravity="center"
+                                    android:tag="
+                                font(Roboto-Regular.ttf);
+                            "
+                                    android:layout_gravity="bottom"
+                                    android:text="@string/votes"
+                                    android:textColor="@color/black40"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:layout_width="16dip"
+                                    android:layout_height="16dip"
+                                    android:adjustViewBounds="true"
+                                    android:layout_marginLeft="4dip"
+                                    android:src="@drawable/ic_person_black_24dp"
+                                    android:alpha="0.5"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#AAA" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="300dip"/>
 
             </LinearLayout>
 
