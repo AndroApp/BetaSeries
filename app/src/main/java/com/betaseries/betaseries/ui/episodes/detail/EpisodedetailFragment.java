@@ -2,7 +2,6 @@ package com.betaseries.betaseries.ui.episodes.detail;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,6 @@ import com.betaseries.betaseries.model.Episode;
 import com.betaseries.betaseries.model.Show;
 import com.betaseries.betaseries.ui.AbstractFragment;
 import com.github.florent37.carpaccio.Carpaccio;
-import com.github.florent37.carpaccio.controllers.adapter.CarpaccioRecyclerViewAdapter;
-import com.github.florent37.carpaccio.controllers.adapter.Holder;
-import com.github.florent37.carpaccio.controllers.adapter.OnItemSwipedListener;
-import com.github.florent37.carpaccio.controllers.adapter.RecyclerViewCallbackAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -54,7 +49,7 @@ public class EpisodeDetailFragment extends AbstractFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_episode_detail_light, container, false);
+        return inflater.inflate(R.layout.fragment_episode_detail, container, false);
     }
 
     @Override
