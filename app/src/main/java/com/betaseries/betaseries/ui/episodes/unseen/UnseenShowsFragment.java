@@ -38,9 +38,6 @@ public class UnseenShowsFragment extends AbstractFragment {
     @Bind(R.id.carpaccio)
     Carpaccio carpaccio;
 
-    @Inject
-    UnseenManager unseenManager;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

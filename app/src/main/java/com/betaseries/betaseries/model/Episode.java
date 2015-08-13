@@ -223,4 +223,20 @@ public class Episode implements Serializable{
                 ", subtitles=" + subtitles +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Episode)) return false;
+
+        Episode episode = (Episode) o;
+
+        return !(id != null ? !id.equals(episode.id) : episode.id != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

@@ -282,4 +282,20 @@ public class Show implements Serializable{
     public String getUnseenCount(){
         return String.valueOf(unseen.size());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Show)) return false;
+
+        Show show = (Show) o;
+
+        return id == show.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

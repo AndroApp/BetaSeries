@@ -1,10 +1,8 @@
 package com.betaseries.betaseries.ui.episodes.unseen;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +23,9 @@ import com.github.florent37.carpaccio.controllers.adapter.RecyclerViewCallbackAd
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by florentchampigny on 11/08/15.
@@ -66,8 +67,14 @@ public class UnseenEpisodesFragment extends AbstractFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        carpaccio.mapObject("show", show);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
         carpaccio.mapList("episode", show.getUnseen());
+        carpaccio.mapObject("show", this.show);
 
         {
             CarpaccioRecyclerViewAdapter adapter = carpaccio.getAdapter("episode");
@@ -97,12 +104,15 @@ public class UnseenEpisodesFragment extends AbstractFragment {
                     episode.setSwiped(true);
                     return false;
                 } else {
-                    betaSeriesAPI.episodeMarquerVu(episode.getId()).subscribe(vu ->
-                                    betaSeriesAPI.episodeNoter(episode.getId(), episode.getNoteUser())
-                                            .subscribe(o2 ->
-                                                            EpisodeViewHolder.class.cast(holder).reinitStars()
-                                            )
-                    );
+                    betaSeriesAPI.episodeMarquerVu(episode.getId())
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(vu -> {
+                                        EpisodeViewHolder.class.cast(holder).reinitStars();
+                                        betaSeriesAPI.episodeNoter(episode.getId(), episode.getNoteUser()).subscribe(o2 -> {
+                                        });
+                                    }
+                            );
                     return true;
                 }
             }
@@ -116,7 +126,7 @@ public class UnseenEpisodesFragment extends AbstractFragment {
             @Override
             public void onItemClick(Episode episode, int i, Holder holder) {
                 if (!episode.isSwiped()) {
-                    ActivityCompat.startActivity(getActivity(),  EpisodeDetailActivity.newInstance(getActivity(), show, episode) , null);
+                    ActivityCompat.startActivity(getActivity(), EpisodeDetailActivity.newInstance(getActivity(), show, episode), null);
                 }
             }
 
