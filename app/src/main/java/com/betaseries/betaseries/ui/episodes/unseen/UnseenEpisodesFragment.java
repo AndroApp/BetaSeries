@@ -124,14 +124,14 @@ public class UnseenEpisodesFragment extends AbstractFragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
         eventBus.register(this);
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
         eventBus.unregister(this);
     }
 

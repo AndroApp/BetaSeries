@@ -61,7 +61,7 @@ public class EpisodeDetailFragment extends AbstractFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        if(episode.getYoutubeId() == null)
+        if (episode.getYoutubeId() == null)
             play.setVisibility(View.GONE);
 
         carpaccio.mapObject("show", show);
@@ -69,26 +69,32 @@ public class EpisodeDetailFragment extends AbstractFragment {
     }
 
     @OnClick(R.id.bannerVideo)
-    public void clickedOnVideo(){
-        if(episode.getYoutubeId() != null){
+    public void clickedOnVideo() {
+        if (episode.getYoutubeId() != null) {
 
         }
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
         eventBus.register(this);
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
         eventBus.unregister(this);
     }
 
-    public void onEvent(EventImageViewController.EventImage eventImage){
-        if(eventImage.url.equals(show.getUrlShow()))
+    int waitingImages = 2;
+    public void onEvent(EventImageViewController.EventImage eventImage) {
+        if (eventImage.url.equals(show.getUrlShow()))
+            waitingImages--;
+        else if (eventImage.url.equals(episode.getUrlBackground()))
+            waitingImages--;
+
+        if (waitingImages == 0)
             getActivity().supportStartPostponedEnterTransition();
     }
 }
