@@ -23,7 +23,7 @@ public class Note implements Serializable{
     }
     public String getMeanFormatted() {
         return mean != null ?
-                mean.replace(".",",") :
+                String.format("%.01f", Float.parseFloat(mean)).replace(".", ",") :
                 "5";
     }
 

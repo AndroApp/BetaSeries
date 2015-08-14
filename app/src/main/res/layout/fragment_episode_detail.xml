@@ -164,12 +164,12 @@
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
-                
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:background="#AAA" />
 
                 <TextView
@@ -177,33 +177,31 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_vertical_margin"
                     android:lineSpacingExtra="8dip"
-                    tools:visibily="gone"
                     android:tag="
                         font(Roboto-Light.ttf);
                         setText($episode.description);
                     "
                     android:textColor="#333"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    tools:visibily="gone" />
 
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:background="#AAA" />
 
 
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/profile_image"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/house_of_cards"
-                    app:border_width="2dp"
-                    app:border_color="@color/white"/>
+                    app:border_color="@color/white"
+                    app:border_width="2dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -213,9 +211,9 @@
                     android:tag="
                         font(RobotoCondensed-Bold.ttf);
                     "
+                    android:text="De Jesus Ferreira Kévin"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:text="De Jesus Ferreira Kévin" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -224,9 +222,9 @@
                     android:tag="
                         font(Roboto-Regular.ttf);
                     "
+                    android:text="Noter ce film"
                     android:textColor="@color/black50"
-                    android:textSize="12sp"
-                    android:text="Noter ce film" />
+                    android:textSize="12sp" />
 
                 <RatingBar
                     android:id="@+id/ratingUserStar"
@@ -238,10 +236,9 @@
                     android:numStars="5"
                     android:progressBackgroundTint="#AAA"
                     android:progressTint="#333"
-                    tools:rating="2.0"
                     android:secondaryProgressTint="#333"
-                    android:stepSize="1" />
-
+                    android:stepSize="1"
+                    tools:rating="2.0" />
 
 
                 <LinearLayout
@@ -265,37 +262,31 @@
                             "
                             android:text="4,2"
                             android:textColor="@color/black"
-                            android:textSize="50sp"
-                            />
-
+                            android:textSize="50sp" />
 
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:layout_gravity="bottom"
-                            >
+                            android:orientation="vertical">
 
                             <RatingBar
                                 style="?android:attr/ratingBarStyleSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/activity_vertical_margin_small"
                                 android:numStars="5"
                                 android:progressBackgroundTint="#AAA"
                                 android:progressTint="#333"
                                 android:rating="4.0"
                                 android:secondaryProgressTint="#333"
-                                android:layout_marginLeft="@dimen/activity_vertical_margin_small"
-
                                 android:stepSize="1" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                >
+                                android:orientation="horizontal">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -313,27 +304,26 @@
 
                                 <TextView
 
-                                    android:visibility="gone"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
                                     android:layout_marginLeft="5sp"
                                     android:gravity="center"
                                     android:tag="
                                 font(Roboto-Regular.ttf);
                             "
-                                    android:layout_gravity="bottom"
                                     android:text="@string/votes"
                                     android:textColor="@color/black40"
-                                    android:textSize="12sp" />
+                                    android:textSize="12sp"
+                                    android:visibility="gone" />
 
                                 <ImageView
                                     android:layout_width="16dip"
                                     android:layout_height="16dip"
-                                    android:adjustViewBounds="true"
                                     android:layout_marginLeft="4dip"
-                                    android:src="@drawable/ic_person_black_24dp"
+                                    android:adjustViewBounds="true"
                                     android:alpha="0.5"
-                                    />
+                                    android:src="@drawable/ic_person_black_24dp" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -341,22 +331,21 @@
                     </LinearLayout>
 
 
-
                 </LinearLayout>
 
 
                 <View
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="#AAA" />
+                    android:layout_marginTop="10dp"
+                    android:background="#AAA"
+                    android:visibility="gone" />
 
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="300dip"/>
+                    android:layout_height="30dip" />
 
             </LinearLayout>
 
