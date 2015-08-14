@@ -58,7 +58,7 @@ public class Episode implements Serializable{
     }
 
     public String getUrlBanner(){
-        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=300&height=150";
+        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=200&height=100";
     }
 
     public String getUrlBackground(){
