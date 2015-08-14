@@ -35,6 +35,8 @@ public class Application extends MultiDexApplication {
         this.betaSeriesComponent = DaggerBetaSeriesComponent.builder()
                 .contextModule(ContextModule.with(getApplicationContext())) //in case we need a context
                 .build();
+
+        betaSeriesComponent.unseenManager().load();
     }
 
     @Override

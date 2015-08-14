@@ -48,12 +48,15 @@ public class UnseenShowsFragment extends AbstractFragment {
 
         CarpaccioLogger.ENABLE_LOG = true;
 
-        carpaccio.mapList("show", unseenManager.load().getUnseens());
+        carpaccio.mapList("show", unseenManager.getUnseens());
         betaSeriesAPI.episodeListAVoir()
                 .observeOn(AndroidSchedulers.mainThread())
+                .onErrorReturn(null)
                 .subscribe(betaSerieResponse -> {
-                    unseenManager.replace(betaSerieResponse.getShows()).save();
-                    carpaccio.mapList("show", betaSerieResponse.getShows());
+                    if (betaSerieResponse != null) {
+                        unseenManager.replace(betaSerieResponse.getShows()).save();
+                        carpaccio.mapList("show", betaSerieResponse.getShows());
+                    }
                 });
 
         carpaccio.onItemClick("show", new OnItemClickListenerAdapter() {

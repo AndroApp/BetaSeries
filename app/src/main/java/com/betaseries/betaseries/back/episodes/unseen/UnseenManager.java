@@ -3,13 +3,14 @@ package com.betaseries.betaseries.back.episodes.unseen;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.betaseries.betaseries.model.Episode;
 import com.betaseries.betaseries.model.Show;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import rx.Observable;
 
 /**
  * Created by florentchampigny on 12/08/15.
@@ -29,10 +30,21 @@ public class UnseenManager {
     }
 
     public UnseenManager load() {
-        String json = sharedPreferences.getString(PREFS_SHOWS, "[]");
-        unseens = gson.fromJson(json, new TypeToken<List<Show>>() {
-        }.getType());
+        if (unseens.isEmpty()) {
+            String json = sharedPreferences.getString(PREFS_SHOWS, "[]");
+            unseens = gson.fromJson(json, new TypeToken<List<Show>>() {
+            }.getType());
+        }
         return this;
+    }
+
+    public Observable<List<Show>> loadAndGet() {
+        return Observable.create((subscriber) -> {
+                    load();
+                    subscriber.onNext(unseens);
+                    subscriber.onCompleted();
+                }
+        );
     }
 
     public List<Show> getUnseens() {

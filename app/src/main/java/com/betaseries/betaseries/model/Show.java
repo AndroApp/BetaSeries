@@ -264,15 +264,15 @@ public class Show implements Serializable{
     }
 
     public String getUrlBanner(){
-        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=500&height=500&picked=banner";
+        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=450&height=450&picked=banner";
     }
 
     public String getUrlShow(){
-        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=400&height=600&picked=show";
+        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=132&height=200&picked=show";
     }
 
     public String getUrlBackground(){
-        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=600&height=300&picked=show";
+        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=400&height=200&picked=show";
     }
 
     public String getSeasonCount(){

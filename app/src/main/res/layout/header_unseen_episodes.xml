@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:tag="unseedDetailHeaderParallax()">
+    android:tag="unseedDetailHeaderParallax()"
+    android:background="#333">
 
     <ImageView
         android:id="@+id/image"
