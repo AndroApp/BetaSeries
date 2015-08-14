@@ -21,7 +21,6 @@ import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListenerAda
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by florentchampigny on 03/08/15.
@@ -49,23 +48,15 @@ public class UnseenShowsFragment extends AbstractFragment {
 
         CarpaccioLogger.ENABLE_LOG = true;
 
-
-        unseenManager.loadAndGet()
-                .subscribeOn(Schedulers.io())
+        carpaccio.mapList("show", unseenManager.getUnseens());
+        betaSeriesAPI.episodeListAVoir()
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(shows -> {
-                    if (shows != null)
-                        carpaccio.mapList("show", shows);
-                    betaSeriesAPI.episodeListAVoir()
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .onErrorReturn(null)
-                            .subscribe(betaSerieResponse -> {
-                                if (betaSerieResponse != null) {
-                                    unseenManager.replace(betaSerieResponse.getShows()).save();
-                                    carpaccio.mapList("show", betaSerieResponse.getShows());
-                                }
-                            });
-
+                .onErrorReturn(null)
+                .subscribe(betaSerieResponse -> {
+                    if (betaSerieResponse != null) {
+                        unseenManager.replace(betaSerieResponse.getShows()).save();
+                        carpaccio.mapList("show", betaSerieResponse.getShows());
+                    }
                 });
 
         carpaccio.onItemClick("show", new OnItemClickListenerAdapter() {
