@@ -10,6 +10,10 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Future;
+
+import rx.Observable;
+import rx.Subscriber;
 
 /**
  * Created by florentchampigny on 12/08/15.
@@ -33,6 +37,15 @@ public class UnseenManager {
         unseens = gson.fromJson(json, new TypeToken<List<Show>>() {
         }.getType());
         return this;
+    }
+
+    public Observable<List<Show>> loadAndGet(){
+        return Observable.create((subscriber) -> {
+                    load();
+                    subscriber.onNext(unseens);
+                    subscriber.onCompleted();
+                }
+        );
     }
 
     public List<Show> getUnseens() {

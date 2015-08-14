@@ -55,9 +55,9 @@
                             setText($user.login);
                             font(Roboto-Medium.ttf);
                         "
-                android:text="Kévin DE JESUS FERREIRA"
+                tools:text="Kévin DE JESUS FERREIRA"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
