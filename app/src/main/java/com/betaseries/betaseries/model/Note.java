@@ -1,11 +1,13 @@
 package com.betaseries.betaseries.model;
 
+import com.orm.SugarRecord;
+
 import java.io.Serializable;
 
 /**
  * Created by florentchampigny on 10/04/15.
  */
-public class Note implements Serializable{
+public class Note  extends SugarRecord<Note> implements Serializable{
     private String total;
     private String mean;
     private Integer user;

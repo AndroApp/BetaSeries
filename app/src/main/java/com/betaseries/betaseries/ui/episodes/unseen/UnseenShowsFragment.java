@@ -17,9 +17,13 @@ import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioLogger;
 import com.github.florent37.carpaccio.controllers.adapter.Holder;
 import com.github.florent37.carpaccio.controllers.adapter.OnItemClickListenerAdapter;
+import com.orm.SugarRecord;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -49,23 +53,25 @@ public class UnseenShowsFragment extends AbstractFragment {
 
         CarpaccioLogger.ENABLE_LOG = true;
 
+        List<Show> showList = Show.listAll(Show.class);
+        if (showList != null)
+            carpaccio.mapList("show", showList);
 
-        unseenManager.loadAndGet()
+        betaSeriesAPI.episodeListAVoir()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .onErrorReturn(null)
+                .flatMap(betaSerieResponse -> {
+                    if (betaSerieResponse != null) {
+                        Show.deleteAll(Show.class);
+                        return Observable.from(betaSerieResponse.getShows());
+                    }else
+                        return Observable.empty();
+                })
+                .doOnNext(SugarRecord::save)
+                .toList()
                 .subscribe(shows -> {
-                    if (shows != null)
-                        carpaccio.mapList("show", shows);
-                    betaSeriesAPI.episodeListAVoir()
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .onErrorReturn(null)
-                            .subscribe(betaSerieResponse -> {
-                                if (betaSerieResponse != null) {
-                                    unseenManager.replace(betaSerieResponse.getShows()).save();
-                                    carpaccio.mapList("show", betaSerieResponse.getShows());
-                                }
-                            });
-
+                    if (shows != null) carpaccio.mapList("show", shows);
                 });
 
         carpaccio.onItemClick("show", new OnItemClickListenerAdapter() {

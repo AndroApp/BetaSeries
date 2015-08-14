@@ -104,13 +104,12 @@ public class UnseenEpisodesFragment extends AbstractFragment {
                     episode.setSwiped(true);
                     return false;
                 } else {
-                    betaSeriesAPI.episodeMarquerVu(episode.getId())
+                    betaSeriesAPI.episodeMarquerVu(episode.getEpisodeId())
+                            .mergeWith(betaSeriesAPI.episodeNoter(episode.getEpisodeId(), episode.getNoteUser()))
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(vu -> {
                                         EpisodeViewHolder.class.cast(holder).reinitStars();
-                                        betaSeriesAPI.episodeNoter(episode.getId(), episode.getNoteUser()).subscribe(o2 -> {
-                                        });
                                     }
                             );
                     return true;

@@ -2,6 +2,8 @@ package com.betaseries.betaseries.model;
 
 import com.betaseries.betaseries.Application;
 import com.betaseries.betaseries.R;
+import com.google.gson.annotations.SerializedName;
+import com.orm.SugarRecord;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,31 +12,34 @@ import java.util.List;
 /**
  * Created by florentchampigny on 10/04/15.
  */
-public class Show implements Serializable{
-    private int id;
-    private int thetvdb_id;
-    private String imdb_id;
-    private String title;
-    private String description;
-    private String seasons;
-    private List<SeasonDetail> seasons_details = new ArrayList<SeasonDetail>();
-    private String episodes;
-    private String followers;
-    private String comments;
-    private String similars;
-    private String characters;
-    private String creation;
-    private List<String> genres = new ArrayList<String>();
-    private String length;
-    private String network;
-    private String rating;
-    private String status;
-    private String language;
-    private Note notes;
-    private Boolean in_account;
-    private User user;
-    private String resource_url;
-    private ArrayList<Episode> unseen;
+public class Show extends SugarRecord<Show> implements Serializable{
+
+    @SerializedName("id")
+    int showId;
+
+    int thetvdb_id;
+    String imdb_id;
+    String title;
+    String description;
+    String seasons;
+    List<SeasonDetail> seasons_details = new ArrayList<SeasonDetail>();
+    String episodes;
+    String followers;
+    String comments;
+    String similars;
+    String characters;
+    String creation;
+    List<String> genres = new ArrayList<String>();
+    String length;
+    String network;
+    String rating;
+    String status;
+    String language;
+    Note notes;
+    Boolean in_account;
+    User user;
+    String resource_url;
+    ArrayList<Episode> unseen;
 
 
 
@@ -50,12 +55,12 @@ public class Show implements Serializable{
         this.unseen = unseen;
     }
 
-    public int getId() {
-        return id;
+    public int getShowId() {
+        return showId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.showId = showId;
     }
 
     public int getThetvdb_id() {
@@ -264,15 +269,15 @@ public class Show implements Serializable{
     }
 
     public String getUrlBanner(){
-        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=450&height=450&picked=banner";
+        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + showId + "&width=450&height=450&picked=banner";
     }
 
     public String getUrlShow(){
-        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=132&height=200&picked=show";
+        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + showId + "&width=132&height=200&picked=show";
     }
 
     public String getUrlBackground(){
-        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + id + "&width=400&height=200&picked=show";
+        return "https://api.betaseries.com/pictures/shows?key=d932200243da&id=" + showId + "&width=400&height=200&picked=show";
     }
 
     public String getSeasonCount(){
@@ -290,12 +295,12 @@ public class Show implements Serializable{
 
         Show show = (Show) o;
 
-        return id == show.id;
+        return showId == show.showId;
 
     }
 
     @Override
     public int hashCode() {
-        return id;
+        return showId;
     }
 }

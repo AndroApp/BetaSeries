@@ -1,32 +1,34 @@
 package com.betaseries.betaseries.model;
 
 import com.betaseries.betaseries.utils.DateUtils;
+import com.google.gson.annotations.SerializedName;
+import com.orm.SugarRecord;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by florentchampigny on 11/04/15.
  */
-public class Episode implements Serializable{
-    private Integer id;
-    private Integer thetvdbId;
-    private Object youtube_id;
-    private String title;
-    private Integer season;
-    private Integer episode;
-    private Show show;
-    private String code;
-    private Integer global;
-    private String description;
-    private String date;
-    private Note note;
-    private User user;
-    private String comments;
-    private ArrayList<Object> subtitles = new ArrayList<Object>();
+public class Episode extends SugarRecord<Episode> implements Serializable {
+
+    @SerializedName("id")
+    Integer episodeId;
+
+    Integer thetvdbId;
+    String youtube_id;
+    String title;
+    Integer season;
+    Integer episode;
+    Show show;
+    String code;
+    Integer global;
+    String description;
+    String date;
+    Note note;
+    User user;
+    String comments;
+    ArrayList<Object> subtitles = new ArrayList<Object>();
 
     private boolean swiped = false;
     private boolean voted = false;
@@ -49,7 +51,7 @@ public class Episode implements Serializable{
     }
 
     public void setNoteUser(float note) {
-        this.noteUser = (int)note;
+        this.noteUser = (int) note;
         this.voted = true;
     }
 
@@ -57,19 +59,19 @@ public class Episode implements Serializable{
         return this.noteUser;
     }
 
-    public String getUrlBanner(){
-        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=200&height=100";
+    public String getUrlBanner() {
+        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + episodeId + "&width=200&height=100";
     }
 
-    public String getUrlBackground(){
-        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + getId() + "&width=900&height=500";
+    public String getUrlBackground() {
+        return "https://api.betaseries.com/pictures/episodes?key=d932200243da&id=" + episodeId + "&width=900&height=500";
     }
 
-    public String getSeasonEpisode(){
-        return "S"+season+" E"+episode;
+    public String getSeasonEpisode() {
+        return "S" + season + " E" + episode;
     }
 
-    public String getDateFr(){
+    public String getDateFr() {
         String dateFr = DateUtils.getDateFr(getDate());
 
         int length = 0;
@@ -79,16 +81,16 @@ public class Episode implements Serializable{
         return dateFr;
     }
 
-    public String getDateFrSmall(){
+    public String getDateFrSmall() {
         return DateUtils.getDateFrSmall(getDate());
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getEpisodeId() {
+        return episodeId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.episodeId = id;
     }
 
     public Integer getThetvdbId() {
@@ -99,11 +101,11 @@ public class Episode implements Serializable{
         this.thetvdbId = thetvdbId;
     }
 
-    public Object getYoutubeId() {
+    public String getYoutubeId() {
         return youtube_id;
     }
 
-    public void setYoutubeId(Object youtubeId) {
+    public void setYoutubeId(String youtubeId) {
         this.youtube_id = youtubeId;
     }
 
@@ -231,12 +233,12 @@ public class Episode implements Serializable{
 
         Episode episode = (Episode) o;
 
-        return !(id != null ? !id.equals(episode.id) : episode.id != null);
+        return !(episodeId != null ? !episodeId.equals(episode.episodeId) : episode.episodeId != null);
 
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        return episodeId != null ? episodeId.hashCode() : 0;
     }
 }

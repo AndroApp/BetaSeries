@@ -1,11 +1,13 @@
 package com.betaseries.betaseries.model;
 
+import com.orm.SugarRecord;
+
 import java.io.Serializable;
 
 /**
  * Created by florentchampigny on 10/04/15.
  */
-public class SeasonDetail implements Serializable{
+public class SeasonDetail extends SugarRecord<SeasonDetail> implements Serializable{
     private Integer number;
     private Integer episodes;
 

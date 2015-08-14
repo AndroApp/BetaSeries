@@ -20,7 +20,6 @@ import com.github.florent37.carpaccio.Carpaccio;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
@@ -78,25 +77,20 @@ public class EpisodeDetailFragment extends AbstractFragment {
 
         ratingUserStar.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
             if (fromUser) {
-                betaSeriesAPI.episodeMarquerVu(episode.getId())
+                betaSeriesAPI.episodeMarquerVu(episode.getEpisodeId())
+                        .mergeWith(betaSeriesAPI.episodeNoter(episode.getEpisodeId(), episode.getNoteUser()))
                         .subscribeOn(Schedulers.io())
                         .observeOn(Schedulers.io())
                         .onErrorReturn(null)
                         .subscribe(vu ->
                                 {
                                     //unseenManager.markSeen(show, episode);
-                                    betaSeriesAPI.episodeNoter(episode.getId(), episode.getNoteUser())
-                                            .subscribeOn(Schedulers.io())
-                                            .observeOn(AndroidSchedulers.mainThread())
-                                            .onErrorReturn(null)
-                                            .subscribe(o2 ->
-                                                            ratingUserStar.animate().alpha(0).setDuration(600).setListener(new AnimatorListenerAdapter() {
-                                                                @Override
-                                                                public void onAnimationEnd(Animator animation) {
-                                                                    ratingUserStar.setVisibility(View.GONE);
-                                                                }
-                                                            }).start()
-                                            );
+                                    ratingUserStar.animate().alpha(0).setDuration(600).setListener(new AnimatorListenerAdapter() {
+                                        @Override
+                                        public void onAnimationEnd(Animator animation) {
+                                            ratingUserStar.setVisibility(View.GONE);
+                                        }
+                                    }).start();
                                 }
                         );
             }

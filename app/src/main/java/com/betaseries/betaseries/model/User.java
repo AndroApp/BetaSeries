@@ -1,11 +1,13 @@
 package com.betaseries.betaseries.model;
 
+import com.orm.SugarRecord;
+
 import java.io.Serializable;
 
 /**
  * Created by florentchampigny on 10/04/15.
  */
-public class User implements Serializable{
+public class User extends SugarRecord<User> implements Serializable{
     private boolean archived;
     private boolean favorited;
     private boolean seen;

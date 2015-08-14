@@ -8,6 +8,7 @@ import com.betaseries.betaseries.back.UserManager;
 import com.betaseries.betaseries.back.episodes.unseen.UnseenManager;
 import com.betaseries.betaseries.webservice.BetaSeriesAPI;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;
@@ -22,6 +23,7 @@ import de.greenrobot.event.EventBus;
 import retrofit.RestAdapter;
 import retrofit.android.AndroidLog;
 import retrofit.client.OkClient;
+import retrofit.converter.GsonConverter;
 
 /**
  * Created by florentchampigny on 30/07/15.
@@ -39,7 +41,8 @@ public class BetaSeriesModule {
     @Singleton
     @Provides
     public Gson provideGson() {
-        return new Gson();
+        GsonStrategy gsonStrategy = new GsonStrategy();
+        return new GsonBuilder().addDeserializationExclusionStrategy(gsonStrategy).addSerializationExclusionStrategy(gsonStrategy).create();
     }
 
     @Singleton
@@ -72,12 +75,13 @@ public class BetaSeriesModule {
 
     @Singleton
     @Provides
-    public BetaSeriesAPI provideBetaSeriesApi(OkHttpClient okHttpClient, AuthentificationManager authentificationManager) {
+    public BetaSeriesAPI provideBetaSeriesApi(OkHttpClient okHttpClient, Gson gson, AuthentificationManager authentificationManager) {
         return new RestAdapter.Builder()
                 .setEndpoint(BuildConfig.URL_BETASERIES)
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setClient(new OkClient(okHttpClient))
                 .setLog(new AndroidLog("Retrofit"))
+                .setConverter(new GsonConverter(gson))
                 .setRequestInterceptor(request -> {
                     request.addHeader("X-BetaSeries-Key", BuildConfig.API_KEY);
                     request.addHeader("X-BetaSeries-Version", "2.4");

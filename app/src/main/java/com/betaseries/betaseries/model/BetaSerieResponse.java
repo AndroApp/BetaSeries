@@ -113,6 +113,23 @@ public class BetaSerieResponse {
         this.errors = errors;
     }
 
+    @Override
+    public String toString() {
+        return "BetaSerieResponse{" +
+                "show=" + show +
+                ", episode=" + episode +
+                ", shows=" + shows +
+                ", episodes=" + episodes +
+                ", pictures=" + pictures +
+                ", videos=" + videos +
+                ", similars=" + similars +
+                ", characters=" + characters +
+                ", errors=" + errors +
+                ", member=" + member +
+                ", comments=" + comments +
+                '}';
+    }
+
 
     //endregion
 }

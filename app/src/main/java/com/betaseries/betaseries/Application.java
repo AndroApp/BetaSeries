@@ -11,6 +11,7 @@ import com.betaseries.betaseries.dagger.DaggerBetaSeriesComponent;
 import com.crashlytics.android.Crashlytics;
 import com.github.florent37.carpaccio.Carpaccio;
 import com.github.florent37.carpaccio.CarpaccioLogger;
+import com.orm.SugarApp;
 
 import java.lang.reflect.Field;
 
@@ -19,7 +20,7 @@ import io.fabric.sdk.android.Fabric;
 /**
  * Created by florentchampigny on 03/06/15.
  */
-public class Application extends MultiDexApplication {
+public class Application extends SugarApp {
 
     private static Application application;
     private BetaSeriesComponent betaSeriesComponent;
@@ -41,7 +42,6 @@ public class Application extends MultiDexApplication {
     protected void attachBaseContext(Context context) {
         super.attachBaseContext(context);
         MultiDex.install(this);
-
     }
 
     public static Application app() {

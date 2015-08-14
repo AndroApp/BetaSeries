@@ -37,14 +37,14 @@ public class MainActivity extends AbstractDrawerActivity {
                     return null;
                 })
                 .subscribe(authentification -> {
-                    if (!userManager.hasUser())
-                        betaSeriesAPI.getInfosUserSummary()
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(response -> {
-                                    userManager.setUser(response.getMember());
-                                    displayUnseenEpisodes();
-                                });
-                    else
+                    //if (!userManager.hasUser())
+                    //    betaSeriesAPI.getInfosUserSummary()
+                    //            .observeOn(AndroidSchedulers.mainThread())
+                    //            .subscribe(response -> {
+                    //                userManager.setUser(response.getMember());
+                    //                displayUnseenEpisodes();
+                    //            });
+                    //else
                         displayUnseenEpisodes();
                 });
     }
