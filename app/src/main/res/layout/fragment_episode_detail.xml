@@ -196,15 +196,17 @@
 
 
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/profile_image"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/house_of_cards"
-                    app:border_width="2dp"
-                    app:border_color="@color/white"/>
+                    tools:src="@drawable/arrow"
+                    android:tag="
+                        circle();
+                        url($user.avatar);
+                        "/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -212,11 +214,12 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/activity_vertical_margin_small"
                     android:tag="
+                        url($user.login)
                         font(RobotoCondensed-Bold.ttf);
                     "
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:text="De Jesus Ferreira Kévin" />
+                    tools:text="De Jesus Ferreira Kévin" />
 
                 <TextView
                     android:layout_width="wrap_content"

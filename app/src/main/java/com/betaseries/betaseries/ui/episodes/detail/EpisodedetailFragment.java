@@ -75,6 +75,7 @@ public class EpisodeDetailFragment extends AbstractFragment {
 
         carpaccio.mapObject("show", show);
         carpaccio.mapObject("episode", episode);
+        carpaccio.mapObject("user", userManager.getUser());
 
         ratingUserStar.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
             if (fromUser) {
